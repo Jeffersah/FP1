@@ -1,0 +1,4 @@
+Content\GenericMenu.xnb
+Content\namefont.xnb
+Content\PrevNames
+Content\SCRDAT

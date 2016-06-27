@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP1", "FP1\FP1\FP1.csproj", "{9E86BB2B-6B17-41B6-A8CB-87C7D8356789}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "FP1Content", "FP1\FP1Content\FP1Content.contentproj", "{57A70469-B4B6-4BFB-9B5A-5E5FC6BB34C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCodeRiddian", "..\..\..\git\XNA-Utils\NCodeRiddian\NCodeRiddian\NCodeRiddian.csproj", "{42EFABAF-7EB3-490E-A2FA-D51A97BB81EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoader", "..\..\..\git\XNA-Utils\DataLoader\DataLoader\DataLoader.csproj", "{CFB1BBAE-A9F3-4B6D-9CEB-68C08D47FB1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E86BB2B-6B17-41B6-A8CB-87C7D8356789}.Debug|x86.ActiveCfg = Debug|x86
+		{9E86BB2B-6B17-41B6-A8CB-87C7D8356789}.Debug|x86.Build.0 = Debug|x86
+		{9E86BB2B-6B17-41B6-A8CB-87C7D8356789}.Release|x86.ActiveCfg = Release|x86
+		{9E86BB2B-6B17-41B6-A8CB-87C7D8356789}.Release|x86.Build.0 = Release|x86
+		{57A70469-B4B6-4BFB-9B5A-5E5FC6BB34C6}.Debug|x86.ActiveCfg = Debug|x86
+		{57A70469-B4B6-4BFB-9B5A-5E5FC6BB34C6}.Release|x86.ActiveCfg = Release|x86
+		{42EFABAF-7EB3-490E-A2FA-D51A97BB81EC}.Debug|x86.ActiveCfg = Debug|x86
+		{42EFABAF-7EB3-490E-A2FA-D51A97BB81EC}.Debug|x86.Build.0 = Debug|x86
+		{42EFABAF-7EB3-490E-A2FA-D51A97BB81EC}.Release|x86.ActiveCfg = Release|x86
+		{42EFABAF-7EB3-490E-A2FA-D51A97BB81EC}.Release|x86.Build.0 = Release|x86
+		{CFB1BBAE-A9F3-4B6D-9CEB-68C08D47FB1D}.Debug|x86.ActiveCfg = Debug|x86
+		{CFB1BBAE-A9F3-4B6D-9CEB-68C08D47FB1D}.Debug|x86.Build.0 = Debug|x86
+		{CFB1BBAE-A9F3-4B6D-9CEB-68C08D47FB1D}.Release|x86.ActiveCfg = Release|x86
+		{CFB1BBAE-A9F3-4B6D-9CEB-68C08D47FB1D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
