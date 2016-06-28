@@ -70,6 +70,7 @@ namespace FP1
             TemporaryPlayer.LOAD();
             Screen.Load(Content);
             Settings.Load();
+            Minigames.Minigame.Load();
             ScreenManager = new GameScreenManager();
             // TODO: use this.Content to load your game content here
         }

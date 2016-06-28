@@ -109,13 +109,19 @@
   <ItemGroup>
     <Compile Include="GameScreenManager.cs" />
     <Compile Include="LCamera.cs" />
+    <Compile Include="Minigames\Minigame.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Screen.cs" />
+    <Compile Include="Screens\GameResultScreen.cs" />
     <Compile Include="Screens\MainMenu.cs" />
+    <Compile Include="Screens\MinigameScreen.cs" />
+    <Compile Include="Screens\OptionsScreen.cs" />
+    <Compile Include="Screens\SetupScreen.cs" />
     <Compile Include="Screens\TemporaryPlayer.cs" />
+    <Compile Include="Screens\WinnerScreen.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
