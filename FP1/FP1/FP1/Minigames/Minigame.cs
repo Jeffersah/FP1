@@ -9,12 +9,24 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using FP1.Screens;
+using NCodeRiddian;
 
 namespace FP1.Minigames
 {
     abstract class Minigame
     {
-        Player [] Players;
+        protected Player [] Players;
+
+        string MinigameName;
+        string Objective;
+
+        public Image thumbnail;
+
+        public Minigame(string Name, string Obj)
+        {
+            MinigameName = Name;
+            Objective = Obj;
+        }
 
         public virtual void Load(ContentManager cm)
         {

@@ -72,7 +72,16 @@ namespace FP1
             Settings.Load();
             ScreenManager = new GameScreenManager();
             Screens.MinigameScreen.Load(Content);
-            // TODO: use this.Content to load your game content here
+
+            //DEBUGGING:
+            GameManager.Setup(new Player[] { new Player("TST P", Difficulty.NON_COMP, PlayerIndex.One), 
+                new Player("CMP E", Difficulty.Easy, PlayerIndex.Two),
+                new Player("CMP M", Difficulty.Medium, PlayerIndex.Three),
+                new Player("CMP H", Difficulty.Hard, PlayerIndex.Four)});
+            ScreenManager.ChangeScreen(new Screens.MinigameScreen(/* Minigame --> */ null /* <-- Minigame */, 
+                GameManager.Players));
+
+            // END DEBUGGING
         }
 
         /// <summary>

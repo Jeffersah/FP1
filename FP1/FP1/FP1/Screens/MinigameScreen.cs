@@ -16,7 +16,7 @@ namespace FP1.Screens
     {
         public static Minigame[] AllMinigames = { };
 
-        public static void Load(ContentManager cm)
+        new public static void Load(ContentManager cm)
         {
             foreach (Minigame m in AllMinigames)
                 m.Load(cm);
@@ -43,6 +43,8 @@ namespace FP1.Screens
 
         public override void Update(GameTime time, GameScreenManager Manager)
         {
+            foreach (Player p in players)
+                p.GamePad.Update();
             currentGame.Update(time, this);
         }
 

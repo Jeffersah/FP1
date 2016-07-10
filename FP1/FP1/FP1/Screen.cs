@@ -19,6 +19,7 @@ namespace FP1
         public static void Load(ContentManager cm)
         {
             MainMenu.Load();
+            MinigameScreen.Load(cm);
         }
     }
 }
