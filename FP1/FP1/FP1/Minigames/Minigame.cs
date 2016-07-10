@@ -16,7 +16,7 @@ namespace FP1.Minigames
     {
         Player [] Players;
 
-        public static void Load()
+        public virtual void Load(ContentManager cm)
         {
             /// For each minigame that has content that needs to be loaded, put the call here
         }
@@ -32,17 +32,16 @@ namespace FP1.Minigames
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Update(GameTime gt, MinigameScreen parentScreen)
-        {
-
-        }
+        public abstract void Update(GameTime gt, MinigameScreen parentScreen);
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Draw(GameTime gt, SpriteBatch sb)
+        public abstract void Draw(GameTime gt, SpriteBatch sb);
+
+        protected void Finish(List<Player> Winners)
         {
+
         }
-        
     }
 }

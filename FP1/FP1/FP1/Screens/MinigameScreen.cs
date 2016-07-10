@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
+using FP1.Minigames;
 
 namespace FP1.Screens
 {
@@ -12,16 +14,41 @@ namespace FP1.Screens
     /// </summary>
     class MinigameScreen : Screen
     {
+        public static Minigame[] AllMinigames = { };
+
+        public static void Load(ContentManager cm)
+        {
+            foreach (Minigame m in AllMinigames)
+                m.Load(cm);
+        }
+
+        public static Minigame GetRandomGame()
+        {
+            return NCodeRiddian.GlobalRandom.RandomFrom<Minigame>(AllMinigames);
+        }
+
+        Minigame currentGame;
+        Player[] players;
+
+        public MinigameScreen(Minigame game, Player[] players)
+        {
+            currentGame = game;
+            this.players = players;
+        }
+
         public override void Start()
         {
+            currentGame.Start(players);
         }
 
         public override void Update(GameTime time, GameScreenManager Manager)
         {
+            currentGame.Update(time, this);
         }
 
         public override void Draw(GameTime time, SpriteBatch sb)
         {
+            currentGame.Draw(time, sb);
         }
     }
 }

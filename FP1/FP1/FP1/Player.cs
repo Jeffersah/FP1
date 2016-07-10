@@ -14,6 +14,7 @@ namespace FP1
         public Difficulty ComputerLevel;
         public GamePadStateManager GamePad;
         public Color PlayerColor;
+        public bool isP1;
 
         public Player(string Name, Difficulty diff, PlayerIndex PlayerIdx)
         {
@@ -29,6 +30,7 @@ namespace FP1
                 IsComputer = true;
             }
             this.Name = Name;
+            isP1 = false;
         }
     }
 
