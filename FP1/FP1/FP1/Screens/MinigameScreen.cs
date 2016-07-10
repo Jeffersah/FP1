@@ -14,7 +14,7 @@ namespace FP1.Screens
     /// </summary>
     class MinigameScreen : Screen
     {
-        public static Minigame[] AllMinigames = { };
+        public static Minigame[] AllMinigames = { new Minigames.test.TestMinigame() };
 
         new public static void Load(ContentManager cm)
         {

@@ -22,3 +22,8 @@ C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader
 C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
 C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb
+H:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\bin\x86\Debug\DataLoader.dll
+H:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\bin\x86\Debug\DataLoader.pdb
+H:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+H:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
+H:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb

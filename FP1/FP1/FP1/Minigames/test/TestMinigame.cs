@@ -47,6 +47,8 @@ namespace FP1.Minigames.test
 
         Player[] players;
 
+        public TestMinigame() : base("Light Game", "Flash 'Em!") { }
+
         public override void Start(Player[] InGame)
         {
             players = InGame;
@@ -63,11 +65,11 @@ namespace FP1.Minigames.test
         public override void Load(ContentManager cm)
         {
 
-            pipeSprite = new Image("Minigame\\test\\pipe");
-            pipeEndSprite = new Image("Minigame\\test\\pipeEnd");
-            lightSprite = new Image("Minigame\\test\\light");
-            lightHitSprite = new Image("Minigame\\test\\lightHit");
-            myFont = TextureManager.getFont("Minigame\\test\\myFont");
+            pipeSprite = new Image("Minigames\\test\\pipe");
+            pipeEndSprite = new Image("Minigames\\test\\pipeEnd");
+            lightSprite = new Image("Minigames\\test\\light");
+            lightHitSprite = new Image("Minigames\\test\\lightHit");
+            myFont = TextureManager.getFont("Minigames\\test\\myfont");
 
             lightHit1Pos = pipeSprite.getTexture().Height + PIPE_POS_Y + 1;
             lightHit2Pos = PIPE_POS_Y - lightHitSprite.getTexture().Height - 1;
@@ -135,7 +137,7 @@ namespace FP1.Minigames.test
                 if (canHitDown)
                 {
 
-                    lightHitBox2.Offset(0, (lightHitSprite.Height + 1));
+                    lightHitBox2.Offset(0, (lightHitSprite.getTexture().Height + 1));
 
                 }
                 canHitDown = false;
@@ -196,6 +198,10 @@ namespace FP1.Minigames.test
             Camera.draw(sb, pipeEndSprite, pipeEndBox2);
             Camera.draw(sb, pipeEndSprite, pipeEndBox1, Color.White, null, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
 
+        }
+
+        public override void RunAI(Player p, Difficulty difficulty)
+        {
         }
     }
 }

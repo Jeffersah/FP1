@@ -38,3 +38,9 @@ C:\Users\NPH\Documents\GitHub\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeR
 C:\Users\NPH\Documents\GitHub\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\NPH\Documents\GitHub\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.dll
 C:\Users\NPH\Documents\GitHub\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb
+H:\C#Brah\XNA\FP1\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.csprojResolveAssemblyReference.cache
+H:\C#Brah\XNA\FP1\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+H:\C#Brah\XNA\FP1\FP1\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.dll
+H:\C#Brah\XNA\FP1\FP1\NCodeRiddian\NCodeRiddian\bin\x86\Debug\NCodeRiddian.pdb
+H:\C#Brah\XNA\FP1\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.dll
+H:\C#Brah\XNA\FP1\FP1\NCodeRiddian\NCodeRiddian\obj\x86\Debug\NCodeRiddian.pdb

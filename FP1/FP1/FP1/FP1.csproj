@@ -111,6 +111,7 @@
     <Compile Include="GameScreenManager.cs" />
     <Compile Include="LCamera.cs" />
     <Compile Include="Minigames\Minigame.cs" />
+    <Compile Include="Minigames\test\TestMinigame.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

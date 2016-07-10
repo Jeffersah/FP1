@@ -62,6 +62,8 @@ namespace FP1
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+            TextureManager.setDebug(true);
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             TextureManager.loadAllImages(Content);
             GlobalCamera = new LCamera(graphics.GraphicsDevice, spriteBatch, Settings.TargetRectangle, Settings.GP_P);
@@ -79,9 +81,9 @@ namespace FP1
                 new Player("CMP E", Difficulty.Easy, PlayerIndex.Two),
                 new Player("CMP M", Difficulty.Medium, PlayerIndex.Three),
                 new Player("CMP H", Difficulty.Hard, PlayerIndex.Four)});
-            GameManager.ChamgeP1(GameManager.Players[0], 0);
+            GameManager.ChangeP1(GameManager.Players[0], 0);
             ScreenManager.ChangeScreen(new Screens.MinigameScreen(
-                null, // Minigame goes here 
+                Screens.MinigameScreen.AllMinigames[0], // Minigame goes here 
                 GameManager.Players));
             */
             // END DEBUGGING
