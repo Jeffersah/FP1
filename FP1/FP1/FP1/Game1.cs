@@ -74,13 +74,16 @@ namespace FP1
             Screens.MinigameScreen.Load(Content);
 
             //DEBUGGING:
+            /*
             GameManager.Setup(new Player[] { new Player("TST P", Difficulty.NON_COMP, PlayerIndex.One), 
                 new Player("CMP E", Difficulty.Easy, PlayerIndex.Two),
                 new Player("CMP M", Difficulty.Medium, PlayerIndex.Three),
                 new Player("CMP H", Difficulty.Hard, PlayerIndex.Four)});
-            ScreenManager.ChangeScreen(new Screens.MinigameScreen(/* Minigame --> */ null /* <-- Minigame */, 
+            GameManager.ChamgeP1(GameManager.Players[0], 0);
+            ScreenManager.ChangeScreen(new Screens.MinigameScreen(
+                null, // Minigame goes here 
                 GameManager.Players));
-
+            */
             // END DEBUGGING
         }
 

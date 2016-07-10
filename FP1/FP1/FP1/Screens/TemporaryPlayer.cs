@@ -46,7 +46,7 @@ namespace FP1
             {
                 if (isInNameSelect)
                 {
-                    if (GamePad.DeltaLeftStick().Y <= -.5f && GamePad.BasePrevious().LeftStick.Y <= 0)
+                    if (GamePad.DeltaLeftStick().Y <= -.5f && GamePad.BasePrevious().LeftStick.Y >= -.1f)
                     {
                         currentHighlight++;
                         if (currentHighlight > Settings.PrvNames.Count)
@@ -54,7 +54,7 @@ namespace FP1
                             currentHighlight--;
                         }
                     }
-                    else if (GamePad.DeltaLeftStick().Y <= -.5f && GamePad.BasePrevious().LeftStick.Y >= 0)
+                    else if (GamePad.DeltaLeftStick().Y >= .5f && GamePad.BasePrevious().LeftStick.Y <= .1f)
                     {
                         currentHighlight--;
                         if (currentHighlight < 0)
@@ -122,6 +122,10 @@ namespace FP1
         public void MenuDraw(SpriteBatch sb, Rectangle area, MainMenu menu)
         {
             Camera.drawGeneric(sb, area, Color.Gray);
+            foreach (Vector2[] line in LocationManager.RectangleEdges(area))
+            {
+                Camera.drawLineGeneric(line[0], line[1], sb, PlayerColor);
+            }
             if (hasPickedName)
             {
                 Camera.drawString(sb, NameFont, Name, new Vector2(area.X + (area.Width / 2) - (NameFont.MeasureString(Name).X / 2), area.Y + 5), Color.Black, 0, Vector2.Zero, SpriteEffects.None, 0);

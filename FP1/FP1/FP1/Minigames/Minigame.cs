@@ -41,6 +41,8 @@ namespace FP1.Minigames
             Players = InGame;
         }
 
+        public abstract void RunAI(Player p, Difficulty difficulty);
+
         /// <summary>
         /// 
         /// </summary>

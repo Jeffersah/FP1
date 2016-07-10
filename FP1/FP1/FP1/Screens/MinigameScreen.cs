@@ -44,7 +44,13 @@ namespace FP1.Screens
         public override void Update(GameTime time, GameScreenManager Manager)
         {
             foreach (Player p in players)
+            {
                 p.GamePad.Update();
+                if (p.IsComputer)
+                {
+                    currentGame.RunAI(p, p.ComputerLevel);
+                }
+            }
             currentGame.Update(time, this);
         }
 
