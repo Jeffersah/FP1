@@ -16,3 +16,9 @@ C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\Microso
 C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
 C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb
 C:\Users\NPH\Documents\git\XNA-Utils\DataLoader\DataLoader\obj\x86\Debug\DataLoader.csprojResolveAssemblyReference.cache
+C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\bin\x86\Debug\DataLoader.dll
+C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\bin\x86\Debug\DataLoader.pdb
+C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.csprojResolveAssemblyReference.cache
+C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
+C:\Users\NPH\Documents\GitHub\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb
