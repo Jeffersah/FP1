@@ -69,6 +69,7 @@ namespace FP1
             GlobalCamera = new LCamera(graphics.GraphicsDevice, spriteBatch, Settings.TargetRectangle, Settings.GP_P);
             Camera.setupCamera(Settings.GP_P);
             Camera.setupGenericTexture(GraphicsDevice);
+            SafeImage.SetPlaceholder(new Image("phld"));
             TemporaryPlayer.LOAD();
             Screen.Load(Content);
             Settings.Load();
