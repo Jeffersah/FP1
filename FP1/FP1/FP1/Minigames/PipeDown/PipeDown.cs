@@ -11,52 +11,14 @@ using Microsoft.Xna.Framework.Media;
 using NCodeRiddian;
 using DataLoader;
 
-namespace FP1.Minigames.test
+namespace FP1.Minigames.PipeDown
 {
     class PipeDown : Minigame
     {
-        /// Pipe structure used to hold data associated with each of the six pipes
-        ///
-        public struct Pipe
-        {
-            Player player;
-            ControllerButton button;
-            float xCoord;
-            float yCoord;
-            float lightPos;
-            bool isGoingDown;
-            bool canHitUp;
-            bool canHitDown;
-            float speed;
 
-            Rectangle upHitBox;
-            Rectangle downHitBox;
-            Rectangle lightBox;
-            Rectangle upEndBox;
-            Rectangle downEndBox;
-
-            public Pipe(Player p, ControllerButton cb, float x, float y, float lp, bool isDown, bool up, bool down, float s, Rectangle upBox, Rectangle downBox, Rectangle lBox, Rectangle uEndBox, Rectangle dEndBox)
-            {
-                player = p;
-                button = cb;
-                xCoord = x;
-                yCoord = y;
-                lightPos = lp;
-                isGoingDown = isDown;
-                canHitUp = up;
-                canHitDown = down;
-                speed = s;
-
-                upHitBox = upBox;
-                downHitBox = downBox;
-                lightBox = lBox;
-                upEndBox = uEndBox;
-                downEndBox = dEndBox;
-            }
-        }
-
-        Rectangle gameSpace;
+        const Rectangle GAMESPACE = new Rectangle(160, 90, 1280, 720);
         List<Pipe> pipes;
+        Player[] players;
 
         Image pipeSprite;
         Image pipeEndSprite;
@@ -66,29 +28,66 @@ namespace FP1.Minigames.test
 
         int frameCount;
 
-        public TestMinigame : base("Pipe Down", "Flash 'Em!"){ }
+        public PipeDown : base("Pipe Down", "Flash 'Em!"){ }
 
         public override void Start(Player[] InGame)
         {
 
-            //gameSpace = new Rectangle
+            players = InGame;
             pipes = new List<Pipe>();
-            //pipes.Add( new Pipe(InGame[1], ) );
-            pipes.Add( new Pipe(InGame[2], ControllerButton.LeftShoulder, ) )
+            
+            frameCount = 0;
 
         }
 
         public override void Load(ContentManager cm)
         {
 
+            pipeSprite = new Image("Minigames\\PipeDown\\pipe");
+            pipeEndSprite = new Image("Minigames\\PipeDown\\pipeEnd");
+            lightSprite = new Image("Minigames\\PipeDown\\light");
+            lightHitSprite = new Image("Minigames\\PipeDown\\lightHit");
+            myFont = TextureManager.getFont("Minigames\\PipeDown\\myfont");
 
+            // TODO: Add the rest of the pipes
+            Rectangle ltRec = new Rectangle(GAMESPACE.Left, GAMESPACE.Top, pipeSprite.getTexture().Width, pipeSprite.getTexture().Height);
+            Rectangle pipeEnd1u = new Rectangle(ltRec.Left, ltRec.Top, pipeEndSprite.getTexture().Width, pipeEndSprite.getTexture().Height);
+            Rectangle pipeEnd1d = new Rectangle(ltRec.Left, ltRec.Bottom - pipeEndSprite.getTexture().Height, pipeEndSprite.getTexture().Width, pipeEndSprite.getTexture().Height);
+            Rectangle hitLight1u = new Rectangle(ltRec.Left, ltRec.Top - (pipeEndSprite.getTexture().Height/2), lightHitSprite.getTexture().Width, lightHitSprite.getTexture().Height);
+            Rectangle hitLight1d = new Rectangle(ltRec.Left, ltRec.Bottom - (pipeEndSprite.getTexture().Height/2), lightHitSprite.getTexture().Width, lightHitSprite.getTexture().Height);
+            Rectangle lightBox1 = new Rectangle(ltRec.Left, ltRec.Top + (ltRec.Height/2), lightSprite.getTexture().Width, lightSprite.getTexture().Height);
+            pipes.Add( new Pipe(players[1], ControllerButton.LeftTrigger, ltRec, true, true, true, 0, hitLight1u, hitLight1d, lightBox1, pipeEnd1u, pipeEnd1d) );
 
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gt, Screens.MinigameScreen parentScreen)
         {
 
+            // Start paused and then begin
+            if(frameCount >= 180)
+            {
+                foreach (Pipe pipe in pipes)
+                {
+                    pipe.setSpeed(2f);
+                }
+            }
 
+            foreach (Pipe pipe in pipes)
+            {
+
+                if(pipe.getPlayer().GamePad.IsButtonPressed(pipe.getButton()))
+                {
+
+                    if(pipe.canDown())
+                    {
+
+                        // OTHER PLAYER HITS
+
+                    }
+
+                }
+
+            }
 
         }
 

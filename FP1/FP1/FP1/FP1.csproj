@@ -114,6 +114,7 @@
     <Compile Include="Minigames\LunchBreak\LunchItem.cs" />
     <Compile Include="Minigames\LunchBreak\Sandwich.cs" />
     <Compile Include="Minigames\Minigame.cs" />
+    <Compile Include="Minigames\PipeDown\Pipe.cs" />
     <Compile Include="Minigames\PipeDown\PipeDown.cs" />
     <Compile Include="Minigames\test\TestMinigame.cs" />
     <Compile Include="Player.cs" />
