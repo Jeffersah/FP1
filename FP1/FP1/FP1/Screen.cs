@@ -21,5 +21,7 @@ namespace FP1
             MainMenu.Load();
             MinigameScreen.Load(cm);
         }
+
+        public GameScreenManager Manager;
     }
 }

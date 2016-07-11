@@ -10,5 +10,8 @@ Content\Minigames\PipeDown\light.xnb
 Content\Minigames\PipeDown\lightHit.xnb
 Content\Minigames\PipeDown\pipe.xnb
 Content\Minigames\PipeDown\pipeEnd.xnb
+Content\Menus\arrow.xnb
+Content\Menus\ReadyboxDown.xnb
+Content\Menus\ReadyboxUp.xnb
 Content\PrevNames
 Content\SCRDAT

@@ -12,7 +12,7 @@ using NCodeRiddian;
 using DataLoader;
 
 namespace FP1.Minigames.test
-{
+{/*
     class PipeDown : Minigame
     {
         /// Pipe structure used to hold data associated with each of the six pipes
@@ -103,5 +103,5 @@ namespace FP1.Minigames.test
         {
         }
 
-    }
+    }*/
 }

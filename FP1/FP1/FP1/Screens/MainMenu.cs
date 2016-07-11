@@ -114,6 +114,13 @@ namespace FP1.Screens
                 // EVERYONE READY
                 foreach (TemporaryPlayer p in Players)
                     p.isReady = true;
+                Player[] ActualPlayers = new Player[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    ActualPlayers[i] = Players[i].GetFinalizedPlayer();
+                }
+                GameManager.Setup(ActualPlayers);
+                GameTimer.AddStaticTimer(time, new TimeSpan(0, 0, 2), x => { Manager.ChangeScreen(new SetupScreen()); });
             }
         }
 

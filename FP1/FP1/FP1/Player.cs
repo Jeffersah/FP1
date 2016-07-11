@@ -32,6 +32,22 @@ namespace FP1
             this.Name = Name;
             isP1 = false;
         }
+        public Player(string Name, Difficulty diff, GamePadStateManager padstate)
+        {
+            ComputerLevel = diff;
+            if (diff == Difficulty.NON_COMP)
+            {
+                GamePad = padstate;
+                IsComputer = false;
+            }
+            else
+            {
+                GamePad = padstate;
+                IsComputer = true;
+            }
+            this.Name = Name;
+            isP1 = false;
+        }
     }
 
     enum Difficulty : int

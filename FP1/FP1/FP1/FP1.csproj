@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="GameManager.cs" />
     <Compile Include="GameScreenManager.cs" />
+    <Compile Include="GameTimer.cs" />
     <Compile Include="LCamera.cs" />
     <Compile Include="Minigames\Minigame.cs" />
     <Compile Include="Minigames\PipeDown\PipeDown.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Screens\TemporaryPlayer.cs" />
     <Compile Include="Screens\WinnerScreen.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TimerComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
