@@ -74,6 +74,7 @@ namespace FP1
             Settings.Load();
             ScreenManager = new GameScreenManager();
             Screens.MinigameScreen.Load(Content);
+            ScreenManager.ChangeScreen(new Screens.CONTROLLER_TEST());
 
             //DEBUGGING:
             /*

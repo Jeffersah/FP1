@@ -157,27 +157,27 @@ namespace NCodeRiddian
     public enum ControllerButton : uint
     {
         // Button Pad
-        A ,
-        B ,
-        X ,
-        Y ,
+        A = 1,
+        B = 2,
+        X = 4,
+        Y = 8,
         // Center
-        Select ,
-        Start,
-        Big ,
+        Select = 16,
+        Start = 32,
+        Big = 64,
         //D-Pad
-        Left,
-        Right,
-        Up,
-        Down ,
+        Left = 128,
+        Right = 256,
+        Up = 512 ,
+        Down  = 1024,
         // Shoulders
-        LeftShoulder ,
-        RightShoulder,
+        LeftShoulder = 1024 * 2,
+        RightShoulder = 1024 * 4,
         // Stick presses
-        LeftStick,
-        RightStick,
-        LeftTrigger,
-        RightTrigger,
+        LeftStick = 1024 * 8,
+        RightStick = 1024 * 16,
+        LeftTrigger = 1024 * 32,
+        RightTrigger = 1024 * 64,
     }
 
     public class ControllerThumbstick

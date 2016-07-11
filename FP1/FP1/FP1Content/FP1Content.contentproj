@@ -57,6 +57,11 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="smallfont.spritefont">
+      <Name>smallfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="PrevNames">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>PrevNames</Name>
