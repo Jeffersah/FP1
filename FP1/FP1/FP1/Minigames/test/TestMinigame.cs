@@ -198,6 +198,8 @@ namespace FP1.Minigames.test
             Camera.draw(sb, pipeEndSprite, pipeEndBox2);
             Camera.draw(sb, pipeEndSprite, pipeEndBox1, Color.White, null, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
 
+            Camera.drawGeneric(sb, new Rectangle(160, 90, 1280, 720), Color.Red);
+
         }
 
         public override void RunAI(Player p, Difficulty difficulty)

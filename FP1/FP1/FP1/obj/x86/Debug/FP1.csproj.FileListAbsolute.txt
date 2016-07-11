@@ -33,3 +33,8 @@ H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\DataLoader.pdb
 H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\NCodeRiddian.pdb
 H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.exe
 H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.pdb
+H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\myfont.xnb
+H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\light.xnb
+H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\lightHit.xnb
+H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\pipe.xnb
+H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\pipeEnd.xnb

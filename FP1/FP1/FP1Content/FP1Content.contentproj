@@ -57,6 +57,11 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="Minigames\PipeDown\myfont.spritefont">
+      <Name>myfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="PrevNames">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>PrevNames</Name>
@@ -66,7 +71,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Minigames\PipeDown\light.png">
+      <Name>light</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Minigames\test\light.png">
       <Name>light</Name>
@@ -84,6 +95,27 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
     <Compile Include="Minigames\test\pipeEnd.png">
+      <Name>pipeEnd</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Minigames\PipeDown\lightHit.png">
+      <Name>lightHit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Minigames\PipeDown\pipe.png">
+      <Name>pipe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Minigames\PipeDown\pipeEnd.png">
       <Name>pipeEnd</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

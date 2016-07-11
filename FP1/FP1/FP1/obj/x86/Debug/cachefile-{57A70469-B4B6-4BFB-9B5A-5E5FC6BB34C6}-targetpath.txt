@@ -5,5 +5,10 @@ Content\Minigames\test\light.xnb
 Content\Minigames\test\lightHit.xnb
 Content\Minigames\test\pipe.xnb
 Content\Minigames\test\pipeEnd.xnb
+Content\Minigames\PipeDown\myfont.xnb
+Content\Minigames\PipeDown\light.xnb
+Content\Minigames\PipeDown\lightHit.xnb
+Content\Minigames\PipeDown\pipe.xnb
+Content\Minigames\PipeDown\pipeEnd.xnb
 Content\PrevNames
 Content\SCRDAT
