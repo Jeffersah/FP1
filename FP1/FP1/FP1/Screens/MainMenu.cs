@@ -37,6 +37,48 @@ namespace FP1.Screens
             {
                 PlayerAreas[i] = new Rectangle((AreaOver5 / 5) + ((AreaOver5 + (AreaOver5 / 5)) * i), 100, AreaOver5, 700);
             }
+            Console.Out.WriteLine(PlayerAreas[0]);
+        }
+
+        public Color NextColor(Color current)
+        {
+            int initial = 0;
+            for (int i = 0; i < PCLR.Length; i++)
+            {
+                if (current == PCLR[i])
+                {
+                    initial = i;
+                }
+            }
+            for (; ; )
+            {
+                initial++;
+                initial %= PCLR.Length;
+                if (!Players.Any(p => { return p.PlayerColor == PCLR[initial]; }))
+                {
+                    return PCLR[initial];
+                }
+            }
+        }
+        public Color PreviousColor(Color current)
+        {
+            int initial = 0;
+            for (int i = 0; i < PCLR.Length; i++)
+            {
+                if (current == PCLR[i])
+                {
+                    initial = i;
+                }
+            }
+            for (; ; )
+            {
+                initial += PCLR.Length - 1;
+                initial %= PCLR.Length;
+                if (!Players.Any(p => { return p.PlayerColor == PCLR[initial]; }))
+                {
+                    return PCLR[initial];
+                }
+            }
         }
 
         public override void Update(GameTime time, GameScreenManager Manager)
@@ -65,6 +107,13 @@ namespace FP1.Screens
                 {
                     Players[i].MenuUpdate(this);
                 }
+            }
+
+            if (Players.Any(x => !x.IsComputer) && Players.Where(x => !x.IsComputer).All(x => x.isReady))
+            {
+                // EVERYONE READY
+                foreach (TemporaryPlayer p in Players)
+                    p.isReady = true;
             }
         }
 

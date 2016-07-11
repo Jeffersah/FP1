@@ -5,5 +5,8 @@ Content\Minigames\test\light.xnb
 Content\Minigames\test\lightHit.xnb
 Content\Minigames\test\pipe.xnb
 Content\Minigames\test\pipeEnd.xnb
+Content\Menus\arrow.xnb
+Content\Menus\ReadyboxDown.xnb
+Content\Menus\ReadyboxUp.xnb
 Content\PrevNames
 Content\SCRDAT

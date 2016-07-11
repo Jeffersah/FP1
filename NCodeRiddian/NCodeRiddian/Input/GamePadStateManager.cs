@@ -138,6 +138,10 @@ namespace NCodeRiddian
             rightTrigger = XNAState.Triggers.Right;
             leftStick.V = XNAState.ThumbSticks.Left;
             rightStick.V = XNAState.ThumbSticks.Right;
+            if (leftTrigger == 1)
+                buttons |= ControllerButton.LeftTrigger;
+            if (rightTrigger == 1)
+                buttons |= ControllerButton.RightTrigger;
         }
         public void Copy(ControllerState c)
         {
@@ -150,28 +154,30 @@ namespace NCodeRiddian
     }
 
     [Flags]
-    public enum ControllerButton : long
+    public enum ControllerButton : uint
     {
         // Button Pad
-        A = 0x1,
-        B = 0x10,
-        X = 0x100,
-        Y = 0x1000,
+        A ,
+        B ,
+        X ,
+        Y ,
         // Center
-        Select =    0x10000,
-        Start =     0x100000,
-        Big = 0x1000000,
+        Select ,
+        Start,
+        Big ,
         //D-Pad
-        Left = 0x10000000,
-        Right = 0x100000000,
-        Up = 0x1000000000,
-        Down = 0x10000000000,
+        Left,
+        Right,
+        Up,
+        Down ,
         // Shoulders
-        LeftShoulder = 0x100000000000,
-        RightShoulder = 0x1000000000000,
+        LeftShoulder ,
+        RightShoulder,
         // Stick presses
-        LeftStick = 0x10000000000000,
-        RightStick = 0x100000000000000
+        LeftStick,
+        RightStick,
+        LeftTrigger,
+        RightTrigger,
     }
 
     public class ControllerThumbstick

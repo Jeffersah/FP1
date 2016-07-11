@@ -17,14 +17,22 @@ namespace FP1
         public int COL_NAME = 8;
 
         public static SpriteFont NameFont;
+        public static Image arrow;
+        public static Image ReadyboxUp;
+        public static Image ReadyboxDown;
         public static void LOAD()
         {
             NameFont = TextureManager.getFont("namefont");
+            arrow = new Image("Menus\\arrow");
+            ReadyboxUp = new Image("Menus\\ReadyboxUp");
+            ReadyboxDown = new Image("Menus\\ReadyboxDown");
         }
 
         public bool hasPickedName = true;
         public bool isInNameSelect = false;
         public bool isSpellingName = false;
+
+        public bool isReady = false;
 
         int currentHighlight = 0;
 
@@ -42,79 +50,119 @@ namespace FP1
         public void MenuUpdate(MainMenu menu)
         {
             GamePad.Update();
-            if (!hasPickedName)
+            if (!isReady)
             {
-                if (isInNameSelect)
+                if (!hasPickedName)
                 {
-                    if (GamePad.DeltaLeftStick().Y <= -.5f && GamePad.BasePrevious().LeftStick.Y >= -.1f)
+                    if (isInNameSelect)
                     {
-                        currentHighlight++;
-                        if (currentHighlight > Settings.PrvNames.Count)
+                        if (GamePad.LeftStick().Y == -1 && GamePad.DeltaLeftStick().Y < 0)
+                        {
+                            currentHighlight++;
+                            if (currentHighlight > Settings.PrvNames.Count)
+                            {
+                                currentHighlight--;
+                            }
+                        }
+                        else if (GamePad.LeftStick().Y == 1 && GamePad.DeltaLeftStick().Y > 0)
                         {
                             currentHighlight--;
+                            if (currentHighlight < 0)
+                                currentHighlight = 0;
+                        }
+                        if (GamePad.IsButtonDown(ControllerButton.A))
+                        {
+                            if (currentHighlight < Settings.PrvNames.Count)
+                            {
+                                isSpellingName = false;
+                                isInNameSelect = false;
+                                hasPickedName = true;
+                                currentHighlight = 0;
+                                base.Name = Settings.PrvNames[currentHighlight];
+                            }
+                            else
+                            {
+                                isSpellingName = true;
+                                isInNameSelect = false;
+                                currentHighlight = 0;
+                            }
                         }
                     }
-                    else if (GamePad.DeltaLeftStick().Y >= .5f && GamePad.BasePrevious().LeftStick.Y <= .1f)
+                    else if (isSpellingName)
+                    {
+                        if (GamePad.DeltaLeftStick().X >= .5f && GamePad.BasePrevious().LeftStick.X >= 0)
+                        {
+                            currentHighlight++;
+                        }
+                        if (GamePad.DeltaLeftStick().X <= -.5f && GamePad.BasePrevious().LeftStick.X <= 0)
+                        {
+                            currentHighlight += 25;
+                        }
+                        if (GamePad.DeltaLeftStick().Y >= .5f && GamePad.BasePrevious().LeftStick.Y >= 0)
+                        {
+                            currentHighlight += 26 - COL_NAME;
+                        }
+                        if (GamePad.DeltaLeftStick().Y <= -.5f && GamePad.BasePrevious().LeftStick.Y <= 0)
+                        {
+                            currentHighlight += COL_NAME;
+                        }
+                        if (GamePad.IsButtonPressed(ControllerButton.A))
+                        {
+                            if (Name.Length < Settings.NAMELEN)
+                                Name += (char)('A' + currentHighlight);
+                        }
+                        if (GamePad.IsButtonPressed(ControllerButton.B))
+                        {
+                            if (Name.Length != 0)
+                                Name = Name.Substring(0, Name.Length - 1);
+                        }
+                        if (GamePad.IsButtonPressed(ControllerButton.Start))
+                        {
+                            if (Name.Length != 0)
+                            {
+                                isSpellingName = false;
+                                hasPickedName = true;
+                                Settings.PrvNames.Add(Name);
+                            }
+                        }
+                        currentHighlight %= 26;
+                    }
+                }
+                else
+                {
+                    /// THEY HAVE PICKED A NAME
+                    if (GamePad.LeftStick().Y == -1 && GamePad.DeltaLeftStick().Y < 0)
+                    {
+                        currentHighlight++;
+                        if (currentHighlight > 1)
+                        {
+                            currentHighlight = 0;
+                        }
+                    }
+                    else if (GamePad.LeftStick().Y == 1 && GamePad.DeltaLeftStick().Y > 0)
                     {
                         currentHighlight--;
                         if (currentHighlight < 0)
-                            currentHighlight = 0;
+                            currentHighlight = 1;
                     }
-                    if (GamePad.IsButtonDown(ControllerButton.A))
+
+                    if (currentHighlight == 0)
                     {
-                        if (currentHighlight < Settings.PrvNames.Count)
+                        // Picking Color
+                        if (GamePad.LeftStick().X == 1 && GamePad.DeltaLeftStick().X > 0)
                         {
-                            isSpellingName = false;
-                            isInNameSelect = false;
-                            hasPickedName = true;
-                            base.Name = Settings.PrvNames[currentHighlight];
+                            PlayerColor = menu.NextColor(PlayerColor);
                         }
-                        else
+                        if (GamePad.LeftStick().X == -1 && GamePad.DeltaLeftStick().X < 0)
                         {
-                            isSpellingName = true;
-                            isInNameSelect = false;
-                            currentHighlight = 0;
+                            PlayerColor = menu.PreviousColor(PlayerColor);
                         }
                     }
-                }
-                else if (isSpellingName)
-                {
-                    if (GamePad.DeltaLeftStick().X >= .5f && GamePad.BasePrevious().LeftStick.X >= 0)
+                    else
                     {
-                        currentHighlight++;
+                        if (GamePad.IsButtonPressed(ControllerButton.A))
+                            isReady = true;
                     }
-                    if (GamePad.DeltaLeftStick().X <= -.5f && GamePad.BasePrevious().LeftStick.X <= 0)
-                    {
-                        currentHighlight += 25;
-                    }
-                    if (GamePad.DeltaLeftStick().Y >= .5f && GamePad.BasePrevious().LeftStick.Y >= 0)
-                    {
-                        currentHighlight += 26 - COL_NAME;
-                    }
-                    if (GamePad.DeltaLeftStick().Y <= -.5f && GamePad.BasePrevious().LeftStick.Y <= 0)
-                    {
-                        currentHighlight += COL_NAME;
-                    }
-                    if (GamePad.IsButtonPressed(ControllerButton.A))
-                    {
-                        if (Name.Length < Settings.NAMELEN)
-                            Name += (char)('A' + currentHighlight);
-                    }
-                    if (GamePad.IsButtonPressed(ControllerButton.B))
-                    {
-                        if (Name.Length != 0)
-                            Name = Name.Substring(0, Name.Length - 1);
-                    }
-                    if (GamePad.IsButtonPressed(ControllerButton.Start))
-                    {
-                        if (Name.Length != 0)
-                        {
-                            isSpellingName = false;
-                            hasPickedName = true;
-                            Settings.PrvNames.Add(Name);
-                        }
-                    }
-                    currentHighlight %= 26;
                 }
             }
         }
@@ -129,6 +177,36 @@ namespace FP1
             if (hasPickedName)
             {
                 Camera.drawString(sb, NameFont, Name, new Vector2(area.X + (area.Width / 2) - (NameFont.MeasureString(Name).X / 2), area.Y + 5), Color.Black, 0, Vector2.Zero, SpriteEffects.None, 0);
+                Rectangle Colorbox = new Rectangle(area.X + (area.Width / 4), area.Y + (area.Height / 5), (area.Width / 2), area.Height / 10);
+                Camera.drawGeneric(sb, Colorbox, PlayerColor);
+                foreach (Vector2[] line in LocationManager.RectangleEdges(Colorbox))
+                {
+                    Camera.drawLineGeneric(line[0], line[1], sb, Color.Black);
+                } 
+                Rectangle readybox = new Rectangle(area.X + (area.Width - ReadyboxDown.getTexture().Width) / 2, area.Y + area.Height - (3 * ReadyboxDown.getTexture().Height) / 2, ReadyboxDown.getTexture().Width, ReadyboxDown.getTexture().Height);
+                if (currentHighlight == 0)
+                {
+                    Camera.draw(sb, arrow, new Rectangle(Colorbox.X + Colorbox.Width, Colorbox.Y + Colorbox.Height / 2, arrow.getTexture().Width, arrow.getTexture().Height), Color.Black, null, 0, new Vector2(0, 12.5f), SpriteEffects.None, 0);
+                    Camera.draw(sb, arrow, new Rectangle(Colorbox.X - arrow.getTexture().Width, Colorbox.Y + Colorbox.Height / 2, arrow.getTexture().Width, arrow.getTexture().Height), Color.Black, null, 0, new Vector2(0, 12.5f), SpriteEffects.FlipHorizontally, 0);
+                }
+               
+
+                
+                if (!isReady)
+                {
+                    Camera.draw(sb, ReadyboxUp, readybox);
+                    if (currentHighlight == 1)
+                    {
+                        Camera.draw(sb, arrow, Color.Black, new Rectangle(readybox.X, readybox.Y + readybox.Height / 2, 60, (60 * arrow.getTexture().Height) / arrow.getTexture().Width), 0, new Vector2(0, 12.5f));
+                        Camera.draw(sb, arrow, new Rectangle(readybox.X + readybox.Width - 60, readybox.Y + readybox.Height / 2, 60, (60 * arrow.getTexture().Height) / arrow.getTexture().Width), Color.Black, null, 0, new Vector2(0, 12.5f), SpriteEffects.FlipHorizontally, 0);
+                    }
+                }
+                else
+                {
+                    Camera.draw(sb, ReadyboxDown, readybox);
+                }
+
+                
             }
             else if (isInNameSelect)
             {

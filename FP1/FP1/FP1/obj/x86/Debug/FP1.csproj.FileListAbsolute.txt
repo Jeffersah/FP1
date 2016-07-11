@@ -2,10 +2,8 @@ C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\FP1.exe
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\FP1.pdb
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\DataLoader.dll
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\NCodeRiddian.dll
-C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\PhysicsLib.dll
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\DataLoader.pdb
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\NCodeRiddian.pdb
-C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\PhysicsLib.pdb
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.csprojResolveAssemblyReference.cache
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.exe
@@ -33,3 +31,11 @@ H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\DataLoader.pdb
 H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\NCodeRiddian.pdb
 H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.exe
 H:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.pdb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\test\myfont.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\test\light.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\test\lightHit.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\test\pipe.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\test\pipeEnd.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\arrow.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\ReadyboxDown.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\ReadyboxUp.xnb
