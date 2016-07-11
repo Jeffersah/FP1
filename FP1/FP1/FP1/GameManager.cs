@@ -13,6 +13,8 @@ namespace FP1
         public static Player[] Players;
         public static int[] Points;
         public static int POINTS_TO_WIN = 10;
+        public static GameSelectionMode SelectMode;
+
         public static void Setup(Player[] Players)
         {
             GameManager.Players = Players;
@@ -30,5 +32,13 @@ namespace FP1
                 }
             }
         }
+    }
+
+    enum GameSelectionMode : byte
+    {
+        Random,
+        Vote,
+        WinnerChoses,
+        LoserChoses
     }
 }

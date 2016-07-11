@@ -20,6 +20,7 @@ namespace FP1
         {
             MainMenu.Load();
             MinigameScreen.Load(cm);
+            SetupScreen.Load();
         }
 
         public GameScreenManager Manager;

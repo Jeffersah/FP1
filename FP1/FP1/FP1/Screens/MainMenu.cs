@@ -120,7 +120,7 @@ namespace FP1.Screens
                     ActualPlayers[i] = Players[i].GetFinalizedPlayer();
                 }
                 GameManager.Setup(ActualPlayers);
-                GameTimer.AddStaticTimer(time, new TimeSpan(0, 0, 2), x => { Manager.ChangeScreen(new SetupScreen()); });
+                GameTimer.AddStaticTimer(time, new TimeSpan(0, 0, 1), x => { Manager.ChangeScreen(new SetupScreen()); });
             }
         }
 

@@ -136,6 +136,15 @@
       <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\ReadyboxUp.xnb</Output>
       <Time>2016-07-11T15:47:03.8388371-04:00</Time>
     </Item>
+    <Item>
+      <Source>Menus\tmpSetup.png</Source>
+      <Name>Menus\tmpSetup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\tmpSetup.xnb</Output>
+      <Time>2016-07-11T17:17:57.4989366-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

@@ -49,3 +49,4 @@ C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\Pi
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\arrow.xnb
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\ReadyboxDown.xnb
 C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\ReadyboxUp.xnb
+C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\tmpSetup.xnb
