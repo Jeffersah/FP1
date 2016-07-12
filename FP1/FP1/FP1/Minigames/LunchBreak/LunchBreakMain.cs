@@ -13,6 +13,7 @@ using FP1.Screens;
 using NCodeRiddian.Input;
 using NCodeRiddian;
 using DataLoader;
+using FP1.Minigames.LunchBreak;
 
 namespace FP1.Minigames
 {
@@ -21,6 +22,11 @@ namespace FP1.Minigames
         public static Image Bread;
         public static Image[] Goodies;
         public static Image Spider;
+
+        Sandwich sandwich;
+        List<LunchItem> fallingItems;
+
+        public LunchBreakMain() : base("Lunch Break", "Disgust him!") { }
 
         public override void Load(ContentManager cm)
         {
@@ -31,17 +37,27 @@ namespace FP1.Minigames
 
         public override void RunAI(Player p, Difficulty difficulty)
         {
-            throw new NotImplementedException();
+        }
+
+        public override void Start(Player[] InGame)
+        {
+            sandwich = new Sandwich(Bread);
+            fallingItems = new List<LunchItem>();
+            base.Start(InGame);
         }
 
         public override void Update(GameTime gt, MinigameScreen parentScreen)
         {
-            throw new NotImplementedException();
+            sandwich.Update(Player1, fallingItems);
+        }
+
+        public void SpawnReset(/*GameTimer timer*/)
+        {
         }
 
         public override void Draw(GameTime gt, SpriteBatch sb)
         {
-            throw new NotImplementedException();
+            sandwich.Draw(sb);
         }
     }
 }

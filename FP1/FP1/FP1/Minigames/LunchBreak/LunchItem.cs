@@ -10,14 +10,27 @@ namespace FP1.Minigames.LunchBreak
 {
     class LunchItem
     {
-        public const int Width = 50;
-        public const int Height = 10;
+        public const int Width = 100;
+        public const int Height = 20;
         const float GRAVITY = 1.5f;
 
-        Rectangle Position;
+        public Rectangle Position;
         Vector2 RealPos;
+        public Vector2 RealPosition
+        {
+            get
+            {
+                return RealPos;
+            }
+            set
+            {
+                RealPos = value;
+                Position.X = (int)value.X;
+                Position.Y = (int)value.Y;
+            }
+        }
         public bool isFalling;
-        Image myImage;
+        public Image myImage;
 
         public LunchItem(Vector2 pos, Image i)
         {

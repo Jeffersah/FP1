@@ -16,6 +16,7 @@ namespace FP1.Minigames
     abstract class Minigame
     {
         protected Player [] Players;
+        protected Player Player1;
 
         string MinigameName;
         string Objective;
@@ -39,6 +40,7 @@ namespace FP1.Minigames
         public virtual void Start(Player[] InGame)
         {
             Players = InGame;
+            Player1 = Players.First(x => x.isP1);
         }
 
         public abstract void RunAI(Player p, Difficulty difficulty);
