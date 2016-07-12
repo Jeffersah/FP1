@@ -77,8 +77,8 @@ namespace FP1
                                 isSpellingName = false;
                                 isInNameSelect = false;
                                 hasPickedName = true;
-                                currentHighlight = 0;
                                 base.Name = Settings.PrvNames[currentHighlight];
+                                currentHighlight = 0;
                             }
                             else
                             {
@@ -272,8 +272,7 @@ namespace FP1
 
         public Player GetFinalizedPlayer()
         {
-            // TODO
-            return null;
+            return new Player(Name, this.ComputerLevel, this.GamePad);
         }
     }
 }

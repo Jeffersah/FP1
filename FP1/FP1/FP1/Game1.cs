@@ -52,6 +52,7 @@ namespace FP1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Components.Add(new TimerComponent(this));
             base.Initialize();
         }
 
@@ -75,7 +76,6 @@ namespace FP1
             Settings.Load();
             ScreenManager = new GameScreenManager();
             Screens.MinigameScreen.Load(Content);
-            ScreenManager.ChangeScreen(new Screens.CONTROLLER_TEST());
 
             //DEBUGGING:
             

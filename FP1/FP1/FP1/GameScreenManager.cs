@@ -17,8 +17,7 @@ namespace FP1
         Screen currentScreen;
         public GameScreenManager()
         {
-            currentScreen = new MainMenu();
-            currentScreen.Start();
+            ChangeScreen(new MainMenu());
         }
         public void Update(GameTime gt)
         {
@@ -38,6 +37,7 @@ namespace FP1
         public void ChangeScreen(Screen newscr)
         {
             newscr.Start();
+            newscr.Manager = this;
             currentScreen = newscr;
             if (sleepout)
                 activesleep = true;

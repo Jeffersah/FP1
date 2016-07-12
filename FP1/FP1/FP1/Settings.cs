@@ -17,6 +17,7 @@ namespace FP1
         public static int GP_X { get { return GPX.X; } set { GPX.X = value; } }
         public static int GP_Y { get { return GPX.Y; } set { GPX.Y = value; } }
         public static Point GP_P { get { return GPX; } set { GPX = value; } }
+        public static Rectangle GP_R { get { return new Rectangle(0, 0, GPX.X, GPX.Y); } }
 
         // Actual Screen Resolution
         static Point ActualScreen;
