@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\light.xnb</Output>
-      <Time>2016-07-11T17:56:43.9148285-04:00</Time>
+      <Time>2016-07-12T13:05:15.7568875-04:00</Time>
     </Item>
     <Item>
       <Source>Minigames\PipeDown\lightHit.png</Source>
@@ -89,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\lightHit.xnb</Output>
-      <Time>2016-07-11T17:56:43.9158287-04:00</Time>
+      <Time>2016-07-12T13:05:15.7608916-04:00</Time>
     </Item>
     <Item>
       <Source>Minigames\PipeDown\pipe.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\pipe.xnb</Output>
-      <Time>2016-07-11T17:56:43.9168295-04:00</Time>
+      <Time>2016-07-12T13:05:15.7643949-04:00</Time>
     </Item>
     <Item>
       <Source>Minigames\PipeDown\pipeEnd.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\pipeEnd.xnb</Output>
-      <Time>2016-07-11T17:56:43.9168295-04:00</Time>
+      <Time>2016-07-12T13:05:15.7684023-04:00</Time>
     </Item>
     <Item>
       <Source>phld.png</Source>
@@ -116,7 +116,232 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\phld.xnb</Output>
-      <Time>2016-07-11T17:56:43.2687713-04:00</Time>
+      <Time>2016-07-12T13:05:15.7809173-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menus\arrow.png</Source>
+      <Name>Menus\arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\arrow.xnb</Output>
+      <Time>2016-07-11T15:25:02.659698-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menus\ReadyboxDown.png</Source>
+      <Name>Menus\ReadyboxDown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\ReadyboxDown.xnb</Output>
+      <Time>2016-07-11T15:47:03.837836-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menus\ReadyboxUp.png</Source>
+      <Name>Menus\ReadyboxUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\ReadyboxUp.xnb</Output>
+      <Time>2016-07-11T15:47:03.8388371-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menus\tmpSetup.png</Source>
+      <Name>Menus\tmpSetup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Menus\tmpSetup.xnb</Output>
+      <Time>2016-07-12T13:06:03.6515946-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\A_MASK.png</Source>
+      <Name>ControllerHelper\A_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\A_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9135714-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\BASE.png</Source>
+      <Name>ControllerHelper\BASE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\BASE.xnb</Output>
+      <Time>2016-07-12T13:55:39.9170755-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\BIG_MASK.png</Source>
+      <Name>ControllerHelper\BIG_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\BIG_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9185763-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\B_MASK.png</Source>
+      <Name>ControllerHelper\B_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\B_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9155733-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\DOWN_MASK.png</Source>
+      <Name>ControllerHelper\DOWN_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\DOWN_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9200617-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\LEFT_BUMPER_MASK.png</Source>
+      <Name>ControllerHelper\LEFT_BUMPER_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\LEFT_BUMPER_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9210628-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\LEFT_MASK.png</Source>
+      <Name>ControllerHelper\LEFT_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\LEFT_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9220624-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\LEFT_STICK_MASK.png</Source>
+      <Name>ControllerHelper\LEFT_STICK_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\LEFT_STICK_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.923564-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\LEFT_TRIGGER_MASK.png</Source>
+      <Name>ControllerHelper\LEFT_TRIGGER_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\LEFT_TRIGGER_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9245657-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\P_COLOR_MASK.png</Source>
+      <Name>ControllerHelper\P_COLOR_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\P_COLOR_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9255668-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\RIGHT_BUMPER_MASK.png</Source>
+      <Name>ControllerHelper\RIGHT_BUMPER_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\RIGHT_BUMPER_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9265667-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\RIGHT_MASK.png</Source>
+      <Name>ControllerHelper\RIGHT_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\RIGHT_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9280684-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\RIGHT_STICK_MASK.png</Source>
+      <Name>ControllerHelper\RIGHT_STICK_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\RIGHT_STICK_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9290695-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\RIGHT_TRIGGER_MASK.png</Source>
+      <Name>ControllerHelper\RIGHT_TRIGGER_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\RIGHT_TRIGGER_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9305709-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\SELECT_MASK.png</Source>
+      <Name>ControllerHelper\SELECT_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\SELECT_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.931572-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\START_MASK.png</Source>
+      <Name>ControllerHelper\START_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\START_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9325728-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\UP_MASK.png</Source>
+      <Name>ControllerHelper\UP_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\UP_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9340792-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\X_MASK.png</Source>
+      <Name>ControllerHelper\X_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\X_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9350803-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\Y_MASK.png</Source>
+      <Name>ControllerHelper\Y_MASK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\Y_MASK.xnb</Output>
+      <Time>2016-07-12T13:55:39.9125706-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\LEFT_STICK.png</Source>
+      <Name>ControllerHelper\LEFT_STICK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\LEFT_STICK.xnb</Output>
+      <Time>2016-07-12T14:36:33.0055741-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ControllerHelper\RIGHT_STICK.png</Source>
+      <Name>ControllerHelper\RIGHT_STICK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NPH\Documents\GitHub\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\RIGHT_STICK.xnb</Output>
+      <Time>2016-07-12T14:36:33.0070758-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

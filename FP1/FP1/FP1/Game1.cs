@@ -71,6 +71,7 @@ namespace FP1
             Camera.setupCamera(Settings.GP_P);
             Camera.setupGenericTexture(GraphicsDevice);
             SafeImage.SetPlaceholder(new Image("phld"));
+            ControllerDisplayHelper.Load();
             TemporaryPlayer.LOAD();
             Screen.Load(Content);
             Settings.Load();
@@ -78,6 +79,8 @@ namespace FP1
             Screens.MinigameScreen.Load(Content);
 
             //DEBUGGING:
+            /*
+            Settings.UPDATE_GT = new GameTime(TimeSpan.Zero, TimeSpan.Zero);
             
             GameManager.Setup(new Player[] { new Player("TST P", Difficulty.NON_COMP, PlayerIndex.One), 
                 new Player("CMP E", Difficulty.Easy, PlayerIndex.Two),
@@ -87,7 +90,7 @@ namespace FP1
             ScreenManager.ChangeScreen(new Screens.MinigameScreen(
                 Screens.MinigameScreen.AllMinigames[1], // Minigame goes here 
                 GameManager.Players));
-            
+            */
             // END DEBUGGING
         }
 
@@ -122,6 +125,8 @@ namespace FP1
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
+            Settings.UPDATE_GT = gameTime;
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
@@ -140,6 +145,14 @@ namespace FP1
             GlobalCamera.Begin();
 
             ScreenManager.Draw(gameTime, spriteBatch);
+
+            if (Settings.DEBUG_CONTROLLERS && GameManager.Players != null && GameManager.Players[0] != null)
+            {
+                for (int x = 0; x < 4; x++)
+                {
+                    ControllerDisplayHelper.RENDER_CONTROLLER(spriteBatch, GameManager.Players[x].GamePad.BaseCurrent(), Settings.PlayerCAreas[x], GameManager.Players[x].PlayerColor);
+                }
+            }
 
             GlobalCamera.End();
             base.Draw(gameTime);

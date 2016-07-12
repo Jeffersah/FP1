@@ -59,5 +59,9 @@ namespace FP1.Minigames
         {
 
         }
+
+        protected void Finish(Player Winner)
+        {
+        }
     }
 }

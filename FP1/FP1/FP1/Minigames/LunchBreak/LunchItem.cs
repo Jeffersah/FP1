@@ -12,10 +12,22 @@ namespace FP1.Minigames.LunchBreak
     {
         public const int Width = 100;
         public const int Height = 20;
-        const float GRAVITY = 1.5f;
+        const float GRAVITY = 5.5f;
 
         public Rectangle Position;
         Vector2 RealPos;
+        public float RealX
+        {
+            get
+            {
+                return RealPosition.X;
+            }
+            set
+            {
+                RealPos.X = value;
+                Position.X = (int)value;
+            }
+        }
         public Vector2 RealPosition
         {
             get
@@ -44,14 +56,31 @@ namespace FP1.Minigames.LunchBreak
         {
             if (isFalling)
             {
+                if (this is Spider)
+                    RealPos.Y += GRAVITY;
                 RealPos.Y += GRAVITY;
             }
 
             Position.Y = (int)RealPos.Y;
             Position.X = (int)RealPos.X;
+            foreach (LunchItem item in sandwich.current)
+            {
+                if (item.Position.Intersects(Position))
+                {
+                    HitSammich(sandwich, item);
+                    return;
+                }
+            }
         }
 
-        public void Draw(SpriteBatch sb)
+        public virtual void HitSammich(Sandwich target, LunchItem item)
+        {
+            RealPosition = new Vector2(RealPosition.X, item.RealPosition.Y - Height);
+            target.current.Add(this);
+            isFalling = false;
+        }
+
+        public virtual void Draw(SpriteBatch sb)
         {
             Camera.draw(sb, myImage, Position);
         }

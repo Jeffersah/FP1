@@ -21,8 +21,10 @@ namespace FP1.Minigames.LunchBreak
         const float MAX_ACCEL = 3;
         const float FRIC = .9f;
         float sandwhichV;
-        List<LunchItem> current;
+        public List<LunchItem> current;
         Rectangle fullBounds;
+
+        float TotalForce;
 
         public Sandwich(Image breadImg)
         {
@@ -35,7 +37,9 @@ namespace FP1.Minigames.LunchBreak
 
         public void Update(Player player1, List<LunchItem> AllLunchItems)
         {
+            TotalForce = 0;
             sandwhichV += MAX_ACCEL * player1.GamePad.LeftStick().X;
+            float initdir = sandwhichV;
             foreach (LunchItem item in current)
             {
                 item.RealPosition = item.RealPosition + new Vector2(sandwhichV, 0);
@@ -48,17 +52,35 @@ namespace FP1.Minigames.LunchBreak
                     ForceBack(Settings.GP_X - (item.RealPosition.X + item.Position.Width));
                 }
             }
+            foreach (LunchItem item in current)
+            {
+                item.RealPosition = item.RealPosition + new Vector2(TotalForce, 0);
+            }
+            if (TotalForce != 0 && Math.Sin(TotalForce) != Math.Sin(sandwhichV))
+                sandwhichV = 0;
+            foreach (LunchItem item in AllLunchItems)
+            {
+                foreach (LunchItem mine in current)
+                {
+                    if (item.Position.Intersects(mine.Position))
+                    {
+                        if (initdir > 0)
+                        {
+                            item.RealX = mine.RealX + LunchItem.Width + 1;
+                        }
+                        else
+                        {
+                            item.RealX = mine.RealX - LunchItem.Width - 1;
+                        }
+                    }
+                }
+            }
             sandwhichV *= FRIC;
         }
 
         public void ForceBack(float dist)
         {
-            if (Math.Sign(sandwhichV) != Math.Sign(dist))
-                sandwhichV = 0;
-            foreach (LunchItem item in current)
-            {
-                item.RealPosition = item.RealPosition + new Vector2(dist, 0);
-            }
+            TotalForce += dist;
         }
 
         public void Draw(SpriteBatch sb)

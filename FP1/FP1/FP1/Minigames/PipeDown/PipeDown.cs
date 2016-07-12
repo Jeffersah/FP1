@@ -16,7 +16,7 @@ namespace FP1.Minigames.PipeDown
     class PipeDown : Minigame
     {
 
-        const Rectangle GAMESPACE = new Rectangle(160, 90, 1280, 720);
+        Rectangle GAMESPACE = new Rectangle(160, 90, 1280, 720);
         List<Pipe> pipes;
         Player[] players;
 

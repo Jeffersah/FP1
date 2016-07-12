@@ -9,6 +9,13 @@ namespace FP1
 {
     abstract class Settings
     {
+        public static GameTime UPDATE_GT;
+
+        public static Rectangle[] PlayerCAreas;
+
+        // Display controller states at the top of the screen
+        public static bool DEBUG_CONTROLLERS = false;
+
         public const int NAMELEN = 5;
         public static List<string> PrvNames = new List<string>();
 
@@ -47,6 +54,17 @@ namespace FP1
                 TargetRectangle.Height = Screen_Y;
                 TargetRectangle.Width = (int)(TgtRes * (double)TargetRectangle.Height);
                 TargetRectangle.X += (Screen_X - TargetRectangle.Width) / 2;
+            }
+
+
+
+            PlayerCAreas = new Rectangle[4];
+            int Wid = GP_X / 5;
+            int spacing = Wid / 5;
+            for (int i = 0; i < 4; i++)
+            {
+                PlayerCAreas[i] = new Rectangle(0, 0, Wid, (int)(ControllerDisplayHelper.GETAR() * Wid));
+                PlayerCAreas[i].X = spacing + (Wid + spacing ) * i;
             }
         }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using NCodeRiddian.Input;
 
 namespace NCodeRiddian
 {
@@ -69,6 +70,14 @@ namespace NCodeRiddian
         public Vector2 DeltaRightStick()
         {
             return Current.RightStick - Previous.RightStick;
+        }
+
+        public SimulatedState GetSimState()
+        {
+            if (this is SimulatedController)
+                return (SimulatedState)Current;
+            else
+                return null;
         }
     }
 
