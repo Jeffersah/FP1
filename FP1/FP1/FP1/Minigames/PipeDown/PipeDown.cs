@@ -28,7 +28,7 @@ namespace FP1.Minigames.PipeDown
 
         int frameCount;
 
-        public PipeDown : base("Pipe Down", "Flash 'Em!"){ }
+        public PipeDown() : base("Pipe Down", "Flash 'Em!"){ }
 
         public override void Start(Player[] InGame)
         {
