@@ -39,7 +39,7 @@ namespace FP1.Minigames
 
             players = InGame;
             pipes = new List<Pipe>();
-            
+
             frameCount = 0;
 
         }
