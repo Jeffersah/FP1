@@ -79,7 +79,7 @@ namespace FP1
             Screens.MinigameScreen.Load(Content);
 
             //DEBUGGING:
-            /*
+            
             Settings.UPDATE_GT = new GameTime(TimeSpan.Zero, TimeSpan.Zero);
             
             GameManager.Setup(new Player[] { new Player("TST P", Difficulty.NON_COMP, PlayerIndex.One), 
@@ -90,7 +90,7 @@ namespace FP1
             ScreenManager.ChangeScreen(new Screens.MinigameScreen(
                 Screens.MinigameScreen.AllMinigames[2], // Minigame goes here 
                 GameManager.Players));
-            */
+            
             // END DEBUGGING
         }
 

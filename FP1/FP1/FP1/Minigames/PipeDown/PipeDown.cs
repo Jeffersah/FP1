@@ -34,16 +34,6 @@ namespace FP1.Minigames
 
         public PipeDown() : base("Pipe Down", "Flash 'Em!"){ }
 
-        public override void Start(Player[] InGame)
-        {
-
-            players = InGame;
-            pipes = new List<Pipe>();
-
-            frameCount = 0;
-
-        }
-
         public override void Load(ContentManager cm)
         {
 
@@ -52,7 +42,7 @@ namespace FP1.Minigames
             lightSprite = new Image("Minigames\\PipeDown\\light");
             lightHitSprite = new Image("Minigames\\PipeDown\\lightHit");
             myFont = TextureManager.getFont("Minigames\\PipeDown\\myfont");
-
+            /*
             pipes.Add(new Pipe(players[1], ControllerButton.LeftTrigger, GAMESPACE.Left, GAMESPACE.Top)); // LT
             pipes.Add(new Pipe(players[1], ControllerButton.LeftShoulder, 
                 GAMESPACE.Left + (pipeSprite.getTexture().Width * 1) + PADDING,
@@ -74,8 +64,40 @@ namespace FP1.Minigames
                 GAMESPACE.Left + (pipeSprite.getTexture().Width * 5) + PADDING,
                 GAMESPACE.Top
                 )); // RT
-            
+            */
 
+
+        }
+
+        public override void Start(Player[] InGame)
+        {
+
+            players = InGame;
+            pipes = new List<Pipe>();
+
+            frameCount = 0;
+
+            pipes.Add(new Pipe(players[1], ControllerButton.LeftTrigger, GAMESPACE.Left, GAMESPACE.Top)); // LT
+            pipes.Add(new Pipe(players[1], ControllerButton.LeftShoulder,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 1) + PADDING,
+                GAMESPACE.Top
+                )); // LB
+            pipes.Add(new Pipe(players[2], ControllerButton.X,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 2) + PADDING,
+                GAMESPACE.Top
+                )); // X
+            pipes.Add(new Pipe(players[2], ControllerButton.A,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 3) + PADDING,
+                GAMESPACE.Top
+                )); // A
+            pipes.Add(new Pipe(players[3], ControllerButton.RightShoulder,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 4) + PADDING,
+                GAMESPACE.Top
+                )); // RB
+            pipes.Add(new Pipe(players[3], ControllerButton.RightTrigger,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 5) + PADDING,
+                GAMESPACE.Top
+                )); // RT
 
         }
 
