@@ -88,7 +88,7 @@ namespace FP1
                 new Player("CMP H", Difficulty.Hard, PlayerIndex.Four)});
             GameManager.ChangeP1(GameManager.Players[0], 0);
             ScreenManager.ChangeScreen(new Screens.MinigameScreen(
-                Screens.MinigameScreen.AllMinigames[1], // Minigame goes here 
+                Screens.MinigameScreen.AllMinigames[2], // Minigame goes here 
                 GameManager.Players));
             */
             // END DEBUGGING

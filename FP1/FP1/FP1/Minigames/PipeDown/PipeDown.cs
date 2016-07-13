@@ -11,12 +11,13 @@ using Microsoft.Xna.Framework.Media;
 using NCodeRiddian;
 using DataLoader;
 
-namespace FP1.Minigames.PipeDown
+namespace FP1.Minigames
 {
     class PipeDown : Minigame
     {
 
         Rectangle GAMESPACE = new Rectangle(160, 90, 1280, 720);
+        const int PADDING = 20;
         List<Pipe> pipes;
         Player[] players;
 
@@ -27,6 +28,9 @@ namespace FP1.Minigames.PipeDown
         SpriteFont myFont;
 
         int frameCount;
+        const int RETRACT_SPEED = 1;
+
+        int[] scores = new int[]{0, 0, 0, 0};
 
         public PipeDown() : base("Pipe Down", "Flash 'Em!"){ }
 
@@ -49,14 +53,29 @@ namespace FP1.Minigames.PipeDown
             lightHitSprite = new Image("Minigames\\PipeDown\\lightHit");
             myFont = TextureManager.getFont("Minigames\\PipeDown\\myfont");
 
-            // TODO: Add the rest of the pipes
-            Rectangle ltRec = new Rectangle(GAMESPACE.Left, GAMESPACE.Top, pipeSprite.getTexture().Width, pipeSprite.getTexture().Height);
-            Rectangle pipeEnd1u = new Rectangle(ltRec.Left, ltRec.Top, pipeEndSprite.getTexture().Width, pipeEndSprite.getTexture().Height);
-            Rectangle pipeEnd1d = new Rectangle(ltRec.Left, ltRec.Bottom - pipeEndSprite.getTexture().Height, pipeEndSprite.getTexture().Width, pipeEndSprite.getTexture().Height);
-            Rectangle hitLight1u = new Rectangle(ltRec.Left, ltRec.Top - (pipeEndSprite.getTexture().Height/2), lightHitSprite.getTexture().Width, lightHitSprite.getTexture().Height);
-            Rectangle hitLight1d = new Rectangle(ltRec.Left, ltRec.Bottom - (pipeEndSprite.getTexture().Height/2), lightHitSprite.getTexture().Width, lightHitSprite.getTexture().Height);
-            Rectangle lightBox1 = new Rectangle(ltRec.Left, ltRec.Top + (ltRec.Height/2), lightSprite.getTexture().Width, lightSprite.getTexture().Height);
-            pipes.Add( new Pipe(players[1], ControllerButton.LeftTrigger, ltRec, true, true, true, 0, hitLight1u, hitLight1d, lightBox1, pipeEnd1u, pipeEnd1d) );
+            pipes.Add(new Pipe(players[1], ControllerButton.LeftTrigger, GAMESPACE.Left, GAMESPACE.Top)); // LT
+            pipes.Add(new Pipe(players[1], ControllerButton.LeftShoulder, 
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 1) + PADDING,
+                GAMESPACE.Top
+                )); // LB
+            pipes.Add(new Pipe(players[2], ControllerButton.X,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 2) + PADDING,
+                GAMESPACE.Top
+                )); // X
+            pipes.Add(new Pipe(players[2], ControllerButton.A,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 3) + PADDING,
+                GAMESPACE.Top
+                )); // A
+            pipes.Add(new Pipe(players[3], ControllerButton.RightShoulder,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 4) + PADDING,
+                GAMESPACE.Top
+                )); // RB
+            pipes.Add(new Pipe(players[3], ControllerButton.RightTrigger,
+                GAMESPACE.Left + (pipeSprite.getTexture().Width * 5) + PADDING,
+                GAMESPACE.Top
+                )); // RT
+            
+
 
         }
 
@@ -68,21 +87,67 @@ namespace FP1.Minigames.PipeDown
             {
                 foreach (Pipe pipe in pipes)
                 {
-                    pipe.setSpeed(2f);
+                    pipe.setSpeed(2);
                 }
             }
 
+            // FIRING AND HITTING
             foreach (Pipe pipe in pipes)
             {
 
                 if(pipe.getPlayer().GamePad.IsButtonPressed(pipe.getButton()))
                 {
-
                     if(pipe.canDown())
                     {
+                        pipe.moveHit(true, 10);
+                        pipe.checkForHit();
+                        pipe.canDown(false);
+                    }
+                }
 
-                        // OTHER PLAYER HITS
+                if (players[0].GamePad.IsButtonPressed(pipe.getButton()))
+                {
+                    if (pipe.canUp())
+                    {
+                        pipe.moveHit(false, -10);
+                        pipe.checkForHit();
+                        pipe.canUp(false);
+                    }
+                }
 
+            }
+
+            // RETRACTING
+            foreach (Pipe pipe in pipes)
+            {
+
+                if (pipe.isFired(true))
+                {
+                    pipe.moveHit(true, -RETRACT_SPEED);
+                }
+                if (pipe.isFired(false))
+                {
+                    pipe.moveHit(false, RETRACT_SPEED);
+                }
+
+            }
+
+            // SCORING
+            foreach (Pipe pipe in pipes)
+            {
+
+                if (pipe.getlightBox().Intersects(pipe.getUpEndBox()))
+                {
+                    scores[0]++;
+                }
+
+                if (pipe.getlightBox().Intersects(pipe.getDownEndBox()))
+                {
+
+                    for (int x = 0; x < players.Length; x++)
+                    {
+                        if (players[x].Equals(pipe.getPlayer()))
+                            scores[x]++;
                     }
 
                 }
@@ -94,7 +159,25 @@ namespace FP1.Minigames.PipeDown
         public override void Draw(Microsoft.Xna.Framework.GameTime gt, Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
 
+            foreach (Pipe pipe in pipes)
+            {
 
+                Camera.draw(sb, pipeSprite, pipe.getSrc());
+
+                Camera.draw(sb, lightHitSprite, pipe.getUpHitBox(), Color.White, null, 0, Vector2.Zero, SpriteEffects.FlipVertically, 1);
+                Camera.draw(sb, lightHitSprite, pipe.getDownHitBox());
+
+                Camera.draw(sb, lightSprite, pipe.getlightBox());
+
+                Camera.draw(sb, pipeEndSprite, pipe.getUpEndBox(), Color.White, null, 0, Vector2.Zero, SpriteEffects.FlipVertically, 1);
+                Camera.draw(sb, pipeEndSprite, pipe.getDownEndBox());
+
+            }
+
+            for (int x = 0; x < players.Length; x++)
+            {
+                Camera.drawString(sb, myFont, ""+scores[x], new Vector2(GAMESPACE.Right, GAMESPACE.Bottom), Color.White, 0, Vector2.Zero, SpriteEffects.None, 1);
+            }
 
         }
 

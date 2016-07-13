@@ -17,6 +17,7 @@ namespace FP1.Screens
         public static Minigame[] AllMinigames = { 
                                                     new Minigames.test.TestMinigame(),  // 0
                                                     new Minigames.LunchBreakMain(),     // 1
+                                                    new Minigames.PipeDown(),   // 2
                                                 };
 
         new public static void Load(ContentManager cm)
