@@ -17,7 +17,7 @@ namespace FP1.Minigames
     {
 
         Rectangle GAMESPACE = new Rectangle(160, 90, 1280, 720);
-        const int PADDING = 20;
+        const int PADDING = 100;
         List<Pipe> pipes;
         Player[] players;
 
@@ -27,8 +27,7 @@ namespace FP1.Minigames
         Image lightHitSprite;
         SpriteFont myFont;
 
-        int frameCount;
-        const int RETRACT_SPEED = 1;
+        const int RETRACT_SPEED = 2;
 
         int[] scores = new int[]{0, 0, 0, 0};
 
@@ -42,30 +41,6 @@ namespace FP1.Minigames
             lightSprite = new Image("Minigames\\PipeDown\\light");
             lightHitSprite = new Image("Minigames\\PipeDown\\lightHit");
             myFont = TextureManager.getFont("Minigames\\PipeDown\\myfont");
-            /*
-            pipes.Add(new Pipe(players[1], ControllerButton.LeftTrigger, GAMESPACE.Left, GAMESPACE.Top)); // LT
-            pipes.Add(new Pipe(players[1], ControllerButton.LeftShoulder, 
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 1) + PADDING,
-                GAMESPACE.Top
-                )); // LB
-            pipes.Add(new Pipe(players[2], ControllerButton.X,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 2) + PADDING,
-                GAMESPACE.Top
-                )); // X
-            pipes.Add(new Pipe(players[2], ControllerButton.A,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 3) + PADDING,
-                GAMESPACE.Top
-                )); // A
-            pipes.Add(new Pipe(players[3], ControllerButton.RightShoulder,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 4) + PADDING,
-                GAMESPACE.Top
-                )); // RB
-            pipes.Add(new Pipe(players[3], ControllerButton.RightTrigger,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 5) + PADDING,
-                GAMESPACE.Top
-                )); // RT
-            */
-
 
         }
 
@@ -75,27 +50,25 @@ namespace FP1.Minigames
             players = InGame;
             pipes = new List<Pipe>();
 
-            frameCount = 0;
-
             pipes.Add(new Pipe(players[1], ControllerButton.LeftTrigger, GAMESPACE.Left, GAMESPACE.Top)); // LT
             pipes.Add(new Pipe(players[1], ControllerButton.LeftShoulder,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 1) + PADDING,
+                GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 1),
                 GAMESPACE.Top
                 )); // LB
             pipes.Add(new Pipe(players[2], ControllerButton.X,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 2) + PADDING,
+                GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 2),
                 GAMESPACE.Top
                 )); // X
             pipes.Add(new Pipe(players[2], ControllerButton.A,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 3) + PADDING,
+                GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 3),
                 GAMESPACE.Top
                 )); // A
             pipes.Add(new Pipe(players[3], ControllerButton.RightShoulder,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 4) + PADDING,
+                GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 4),
                 GAMESPACE.Top
                 )); // RB
             pipes.Add(new Pipe(players[3], ControllerButton.RightTrigger,
-                GAMESPACE.Left + (pipeSprite.getTexture().Width * 5) + PADDING,
+                GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 5),
                 GAMESPACE.Top
                 )); // RT
 
@@ -105,12 +78,18 @@ namespace FP1.Minigames
         {
 
             // Start paused and then begin
-            if(frameCount >= 180)
+            
+            foreach (Pipe pipe in pipes)
             {
-                foreach (Pipe pipe in pipes)
-                {
+
+                if (pipe.fc() == 120)
                     pipe.setSpeed(2);
-                }
+
+            }
+
+            foreach (Pipe pipe in pipes)
+            {
+                pipe.moveLightBox();
             }
 
             // FIRING AND HITTING
@@ -121,7 +100,18 @@ namespace FP1.Minigames
                 {
                     if(pipe.canDown())
                     {
-                        pipe.moveHit(true, 10);
+                        pipe.moveHit(true, lightHitSprite.getTexture().Height);
+                        pipe.checkForHit();
+                        pipe.canDown(false);
+                    }
+                }
+
+                // DUBUG ONLY
+                if (Keyboard.GetState().IsKeyDown(Keys.Space))
+                {
+                    if (pipe.canDown())
+                    {
+                        pipe.moveHit(true, lightHitSprite.getTexture().Height);
                         pipe.checkForHit();
                         pipe.canDown(false);
                     }
@@ -131,14 +121,14 @@ namespace FP1.Minigames
                 {
                     if (pipe.canUp())
                     {
-                        pipe.moveHit(false, -10);
+                        pipe.moveHit(false, -(lightHitSprite.getTexture().Height));
                         pipe.checkForHit();
                         pipe.canUp(false);
                     }
                 }
 
             }
-
+            
             // RETRACTING
             foreach (Pipe pipe in pipes)
             {
@@ -147,13 +137,21 @@ namespace FP1.Minigames
                 {
                     pipe.moveHit(true, -RETRACT_SPEED);
                 }
+                else
+                {
+                    pipe.canDown(true);
+                }
                 if (pipe.isFired(false))
                 {
                     pipe.moveHit(false, RETRACT_SPEED);
                 }
+                else
+                {
+                    pipe.canUp(true);
+                }
 
             }
-
+            
             // SCORING
             foreach (Pipe pipe in pipes)
             {
@@ -161,6 +159,7 @@ namespace FP1.Minigames
                 if (pipe.getlightBox().Intersects(pipe.getUpEndBox()))
                 {
                     scores[0]++;
+                    pipe.reset();
                 }
 
                 if (pipe.getlightBox().Intersects(pipe.getDownEndBox()))
@@ -171,11 +170,18 @@ namespace FP1.Minigames
                         if (players[x].Equals(pipe.getPlayer()))
                             scores[x]++;
                     }
+                    pipe.reset();
 
                 }
 
             }
-
+            
+            // INCREMENT FRAME COUNTS
+            foreach (Pipe pipe in pipes)
+            {
+                pipe.incrementFC();
+            }
+            
         }
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gt, Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
@@ -196,9 +202,10 @@ namespace FP1.Minigames
 
             }
 
-            for (int x = 0; x < players.Length; x++)
+            Camera.drawString(sb, myFont, "P1: " + scores[0], new Vector2((GAMESPACE.Right - 80), (GAMESPACE.Bottom - 200)), Color.Yellow, 0, Vector2.Zero, SpriteEffects.None, 1);
+            for (int x = 1; x < players.Length; x++)
             {
-                Camera.drawString(sb, myFont, ""+scores[x], new Vector2(GAMESPACE.Right, GAMESPACE.Bottom), Color.White, 0, Vector2.Zero, SpriteEffects.None, 1);
+                Camera.drawString(sb, myFont, "P"+(x+1)+": "+scores[x], new Vector2((GAMESPACE.Right - 80), (GAMESPACE.Bottom - 200) + (50*x)), Color.White, 0, Vector2.Zero, SpriteEffects.None, 1);
             }
 
         }

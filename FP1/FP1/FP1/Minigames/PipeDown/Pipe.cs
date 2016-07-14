@@ -36,13 +36,20 @@ namespace FP1.Minigames
         Rectangle upEndBox;
         Rectangle downEndBox;
 
+        int frameCount;
+
         public Pipe(Player p, ControllerButton cb, int x, int y)
+        {
+            set(p, cb, x, y);
+        }
+
+        public void set(Player p, ControllerButton cb, int x, int y)
         {
 
             player = p;
             button = cb;
             srcRec = new Rectangle(x, y, PIPE_WIDTH, PIPE_HEIGHT);
-            
+
             isGoingDown = true;
             canHitUp = true;
             canHitDown = true;
@@ -50,15 +57,15 @@ namespace FP1.Minigames
 
             upHitBox = new Rectangle(
                 x,
-                y - LIGHT_HEIGHT,
+                (y - HIT_HEIGHT) + (END_HEIGHT - 1),
                 PIPE_WIDTH,
-                LIGHT_HEIGHT
+                HIT_HEIGHT
                 );
             downHitBox = new Rectangle(
                 x,
-                srcRec.Bottom,
+                srcRec.Bottom - (END_HEIGHT - 1),
                 PIPE_WIDTH,
-                LIGHT_HEIGHT
+                HIT_HEIGHT
                 );
             lightBox = new Rectangle(
                 x,
@@ -79,7 +86,16 @@ namespace FP1.Minigames
                 END_HEIGHT
                 );
 
+            frameCount = 0;
+
         }
+        public void reset()
+        {
+            set(player, button, srcRec.X, srcRec.Y);
+        }
+
+        public void incrementFC() { frameCount++; }
+        public int fc() { return frameCount; }
 
         public void setlightPos(float newPos)
         {
@@ -142,7 +158,7 @@ namespace FP1.Minigames
         {
 
             if (distance <= 30 && isGoingDown)
-                setSpeed(4);
+                setSpeed(getSpeed()*2);
             else
                 setSpeed(2);
 
@@ -153,8 +169,8 @@ namespace FP1.Minigames
         public void hitDownwards(int distance)
         {
 
-            if (distance <= 30 && !isGoingDown)
-                setSpeed(4);
+            if (distance <= 50 && !isGoingDown)
+                setSpeed(getSpeed()*2);
             else
                 setSpeed(2);
 
@@ -170,6 +186,14 @@ namespace FP1.Minigames
                 if (canHitDown)
                 {
                     hitDownwards(Math.Abs(lightBox.Top - upEndBox.Bottom));
+                }
+            }
+
+            if (lightBox.Intersects(downHitBox))
+            {
+                if (canHitUp)
+                {
+                    hitUpwards(Math.Abs(lightBox.Bottom - downEndBox.Top));
                 }
             }
 
