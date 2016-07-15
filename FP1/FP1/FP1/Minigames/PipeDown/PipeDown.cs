@@ -186,7 +186,7 @@ namespace FP1.Minigames
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gt, Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
-
+            
             foreach (Pipe pipe in pipes)
             {
 
@@ -212,6 +212,62 @@ namespace FP1.Minigames
 
         public override void RunAI(Player p, Difficulty difficulty)
         {
+
+            foreach (Pipe pipe in pipes)
+            {
+
+                if (!p.isP1)
+                {
+                    if (pipe.getPlayer().Equals(p))
+                    {
+                        switch (difficulty)
+                        {
+
+                            case Difficulty.SEasy:    // Super Easy
+                                break;
+
+                            case Difficulty.Easy:      // Easy
+                                break;
+
+                            case Difficulty.Medium:    // Medium
+                                break;
+
+                            case Difficulty.Hard:      // Hard
+                                break;
+
+                            case Difficulty.SHard:     // Super Hard
+                                break;
+
+                        }
+                    }
+                }
+                else
+                {
+
+                    switch (difficulty)
+                    {
+
+                        case Difficulty.SEasy:    // Super Easy
+                            break;
+
+                        case Difficulty.Easy:      // Easy
+                            break;
+
+                        case Difficulty.Medium:    // Medium
+                            break;
+
+                        case Difficulty.Hard:      // Hard
+                            break;
+
+                        case Difficulty.SHard:     // Super Hard
+                            break;
+
+                    }
+
+                }
+
+            }
+
         }
 
     }
