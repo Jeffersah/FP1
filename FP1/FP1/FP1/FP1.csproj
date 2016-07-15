@@ -120,6 +120,8 @@
     <Compile Include="Minigames\PipeDown\Pipe.cs" />
     <Compile Include="Minigames\PipeDown\PipeDown.cs" />
     <Compile Include="Minigames\test\TestMinigame.cs" />
+    <Compile Include="Minigames\TugLife\Tugger.cs" />
+    <Compile Include="Minigames\TugLife\TugLifeMain.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

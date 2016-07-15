@@ -62,6 +62,11 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="Minigames\TugLife\tugFont.spritefont">
+      <Name>tugFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="PrevNames">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>PrevNames</Name>
@@ -255,6 +260,18 @@
     </Compile>
     <Compile Include="ControllerHelper\RIGHT_STICK.png">
       <Name>RIGHT_STICK</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Minigames\TugLife\muscleMan.png">
+      <Name>muscleMan</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Minigames\TugLife\rope.png">
+      <Name>rope</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

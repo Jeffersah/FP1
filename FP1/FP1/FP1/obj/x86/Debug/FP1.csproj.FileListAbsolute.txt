@@ -122,3 +122,6 @@ F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.csprojResolveAssemblyReferen
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.exe
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\obj\x86\Debug\FP1.pdb
+F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\tugFont.xnb
+F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\muscleMan.xnb
+F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\rope.xnb

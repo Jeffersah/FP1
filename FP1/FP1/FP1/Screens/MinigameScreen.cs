@@ -18,6 +18,7 @@ namespace FP1.Screens
                                                     new Minigames.test.TestMinigame(),  // 0
                                                     new Minigames.LunchBreakMain(),     // 1
                                                     new Minigames.PipeDown(),   // 2
+                                                    new Minigames.TugLifeMain() // 3
                                                 };
 
         new public static void Load(ContentManager cm)

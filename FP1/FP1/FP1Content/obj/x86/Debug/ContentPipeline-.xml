@@ -343,6 +343,33 @@
       <Output>F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerHelper\RIGHT_STICK.xnb</Output>
       <Time>2016-07-13T16:10:48-04:00</Time>
     </Item>
+    <Item>
+      <Source>Minigames\TugLife\tugFont.spritefont</Source>
+      <Name>Minigames\TugLife\tugFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\tugFont.xnb</Output>
+      <Time>2016-07-14T21:23:38-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Minigames\TugLife\muscleMan.png</Source>
+      <Name>Minigames\TugLife\muscleMan</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\muscleMan.xnb</Output>
+      <Time>2016-07-14T21:15:50-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Minigames\TugLife\rope.png</Source>
+      <Name>Minigames\TugLife\rope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\rope.xnb</Output>
+      <Time>2016-07-14T21:15:24-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID Null="true" />
