@@ -20,6 +20,10 @@ namespace FP1.Minigames
 
         Image ropeSprite;
         Image muscleManSprite;
+        Image aButtonSprite;
+        Image bButtonSprite;
+        Image xButtonSprite;
+        Image yButtonSprite;
         SpriteFont myFont;
 
         Random rando = new Random();
@@ -36,6 +40,7 @@ namespace FP1.Minigames
 
         List<ControllerButton> buttons;
         ControllerButton currentButton;
+        Dictionary<ControllerButton, Image> buttonSprites;
 
         bool canActivate;
         bool isStunned;
@@ -48,6 +53,10 @@ namespace FP1.Minigames
 
             ropeSprite = new Image("Minigames\\TugLife\\rope");
             muscleManSprite = new Image("Minigames\\TugLife\\muscleMan");
+            aButtonSprite = new Image("ControllerHelper\\A_MASK");
+            bButtonSprite = new Image("ControllerHelper\\B_MASK");
+            xButtonSprite = new Image("ControllerHelper\\X_MASK");
+            yButtonSprite = new Image("ControllerHelper\\Y_MASK");
 
             myFont = TextureManager.getFont("Minigames\\TugLife\\tugFont");
 
@@ -82,6 +91,12 @@ namespace FP1.Minigames
             buttons.Add(ControllerButton.B);
             currentButton = ControllerButton.A;
 
+            buttonSprites = new Dictionary<ControllerButton, Image>();
+            buttonSprites.Add(ControllerButton.A, aButtonSprite);
+            buttonSprites.Add(ControllerButton.B, bButtonSprite);
+            buttonSprites.Add(ControllerButton.X, xButtonSprite);
+            buttonSprites.Add(ControllerButton.Y, yButtonSprite);
+
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gt, Screens.MinigameScreen parentScreen)
@@ -90,6 +105,7 @@ namespace FP1.Minigames
             if (frameCount >= 120)
                 isStunned = false;
 
+            // ACTIVATING TEAMMATES
             foreach (Tugger teammate in team)
             {
                 if (canActivate)
@@ -98,10 +114,13 @@ namespace FP1.Minigames
                     {
                         teammate.activate();
                         canActivate = false;
+
+                        currentButton = buttons.ElementAt(rando.Next(0, buttons.Count));
                     }
                 }
             }
 
+            // OTHER PLAYERS
             if (!isStunned)
             {
                 for (int x = 1; x < players.Length; x++)
@@ -132,6 +151,7 @@ namespace FP1.Minigames
                 }
             }
 
+            // PLAYER ONE
             if (players[0].GamePad.IsButtonPressed(ControllerButton.A))
             {
                 ropePosition.Offset(P1_STRENGTH, 0);
@@ -172,6 +192,20 @@ namespace FP1.Minigames
             Camera.draw(sb, muscleManSprite, p1.getSrc(), p1.getColor(), null, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 1);
 
             Camera.drawGeneric(sb, winBox, Color.Red);
+
+            foreach (Tugger teammate in team)
+            {
+                if (teammate.isActive)
+                {
+                    Camera.draw(sb, buttonSprites[currentButton],
+                        new Rectangle
+                            (teammate.getSrc().Left,
+                            teammate.getSrc().Top - buttonSprites[currentButton].getTexture().Height,
+                            teammate.getSrc().Width,
+                            buttonSprites[currentButton].getTexture().Height));
+                }
+
+            }
 
         }
 
