@@ -53,10 +53,10 @@ namespace FP1.Minigames
 
             ropeSprite = new Image("Minigames\\TugLife\\rope");
             muscleManSprite = new Image("Minigames\\TugLife\\muscleMan");
-            aButtonSprite = new Image("ControllerHelper\\A_MASK");
-            bButtonSprite = new Image("ControllerHelper\\B_MASK");
-            xButtonSprite = new Image("ControllerHelper\\X_MASK");
-            yButtonSprite = new Image("ControllerHelper\\Y_MASK");
+            aButtonSprite = new Image("ControllerImages\\A");
+            bButtonSprite = new Image("ControllerImages\\B");
+            xButtonSprite = new Image("ControllerImages\\X");
+            yButtonSprite = new Image("ControllerImages\\Y");
 
             myFont = TextureManager.getFont("Minigames\\TugLife\\tugFont");
 
@@ -201,7 +201,7 @@ namespace FP1.Minigames
                         new Rectangle
                             (teammate.getSrc().Left,
                             teammate.getSrc().Top - buttonSprites[currentButton].getTexture().Height,
-                            teammate.getSrc().Width,
+                            buttonSprites[currentButton].getTexture().Width,
                             buttonSprites[currentButton].getTexture().Height));
                 }
 
