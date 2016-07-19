@@ -129,3 +129,4 @@ F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\A.xnb
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\B.xnb
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\X.xnb
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\Y.xnb
+F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\beachBackground.xnb

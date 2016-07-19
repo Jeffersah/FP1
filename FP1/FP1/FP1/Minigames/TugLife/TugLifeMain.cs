@@ -16,7 +16,7 @@ namespace FP1.Minigames
     class TugLifeMain : Minigame
     {
 
-        Rectangle GAMESPACE = new Rectangle(200, 200, 1200, 500);
+        Rectangle GAMESPACE = new Rectangle(200, 350, 1200, 500);
 
         Image ropeSprite;
         Image muscleManSprite;
@@ -24,6 +24,7 @@ namespace FP1.Minigames
         Image bButtonSprite;
         Image xButtonSprite;
         Image yButtonSprite;
+        Image beachBackground;
         SpriteFont myFont;
 
         Random rando = new Random();
@@ -59,6 +60,7 @@ namespace FP1.Minigames
             bButtonSprite = new Image("ControllerImages\\B");
             xButtonSprite = new Image("ControllerImages\\X");
             yButtonSprite = new Image("ControllerImages\\Y");
+            beachBackground = new Image("Minigames\\TugLife\\beachBackground");
 
             myFont = TextureManager.getFont("Minigames\\TugLife\\tugFont");
 
@@ -208,6 +210,9 @@ namespace FP1.Minigames
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gt, Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
+
+            // Background
+            Camera.draw(sb, beachBackground, new Rectangle(0, 0, beachBackground.getTexture().Width, beachBackground.getTexture().Height));
 
             Camera.draw(sb, ropeSprite, ropePosition);
 
