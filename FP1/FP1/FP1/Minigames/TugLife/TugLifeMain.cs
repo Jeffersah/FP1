@@ -38,6 +38,8 @@ namespace FP1.Minigames
         const int TEAM_STRENGTH = -50;
         const int ACTIVATE_CHANCE = 100;
 
+        //const int SEASY_HIT_CHANCE = 
+
         List<ControllerButton> buttons;
         ControllerButton currentButton;
         Dictionary<ControllerButton, Image> buttonSprites;
@@ -120,6 +122,31 @@ namespace FP1.Minigames
                 }
             }
 
+            /*
+            // TEST OTHER PLAYERS
+            bool canPull = false;
+            Tugger activator = null;
+            foreach (Tugger teammate in team)
+            {
+                if (teammate.isActive)
+                {
+                    canPull = true;
+                    activator = teammate;
+                }
+            }
+            if (canPull)
+            {
+                for (int x = 0; x < buttons.Count; x++)
+                {
+                    if (players[0].GamePad.IsButtonPressed(currentButton))
+                    {
+                        bigTug(activator);
+                        canActivate = true;
+                    }
+                }
+            }
+            */ 
+            
             // OTHER PLAYERS
             if (!isStunned)
             {
@@ -211,6 +238,215 @@ namespace FP1.Minigames
 
         public override void RunAI(Player p, Difficulty difficulty)
         {
+
+            int decision;
+            bool active = false;
+            foreach (Tugger teammate in team)
+            {
+                if (teammate.getPlayer().Equals(p))
+                    active = teammate.isActive;
+            }
+
+            switch (difficulty)
+            {
+
+                case Difficulty.SEasy :
+
+                    if (active)
+                    {
+
+                        decision = rando.Next(1, 101);
+
+                        if (decision <= 15)
+                        {
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+                        }
+                        else if (decision <= 50)
+                        {
+                            // Don't hit
+                        }
+                        else
+                        {
+
+                            ControllerButton choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+
+                            while (choice == currentButton)
+                            {
+                                choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+                            }
+
+                            p.GamePad.GetSimState().SetButtonDown(choice);
+
+                        }
+
+                    }
+                    else
+                    {
+                        if (rando.Next(1, 1001) <= 50)
+                        {
+
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+
+                        }
+                    }
+
+                    break;
+
+                case Difficulty.Easy :
+
+                    if (active)
+                    {
+
+                        decision = rando.Next(1, 101);
+
+                        if (decision <= 25)
+                        {
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+                        }
+                        else if (decision <= 60)
+                        {
+                            // Don't hit
+                        }
+                        else
+                        {
+
+                            ControllerButton choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+
+                            while (choice == currentButton)
+                            {
+                                choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+                            }
+
+                            p.GamePad.GetSimState().SetButtonDown(choice);
+
+                        }
+
+                    }
+                    else
+                    {
+                        if (rando.Next(1, 1001) <= 30)
+                        {
+
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+
+                        }
+                    }
+
+                    break;
+
+                case Difficulty.Medium :
+
+                    if (active)
+                    {
+
+                        decision = rando.Next(1, 101);
+
+                        if (decision <= 40)
+                        {
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+                        }
+                        else if (decision <= 70)
+                        {
+                            // Don't hit
+                        }
+                        else
+                        {
+
+                            ControllerButton choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+
+                            while (choice == currentButton)
+                            {
+                                choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+                            }
+
+                            p.GamePad.GetSimState().SetButtonDown(choice);
+
+                        }
+
+                    }
+                    else
+                    {
+                        if (rando.Next(1, 1001) <= 10)
+                        {
+
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+
+                        }
+                    }
+
+                    break;
+
+                case Difficulty.Hard :
+
+                    if (active)
+                    {
+
+                        decision = rando.Next(1, 101);
+
+                        if (decision <= 50)
+                        {
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+                        }
+                        else if (decision <= 83)
+                        {
+                            // Don't hit
+                        }
+                        else
+                        {
+
+                            ControllerButton choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+
+                            while (choice == currentButton)
+                            {
+                                choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+                            }
+
+                            p.GamePad.GetSimState().SetButtonDown(choice);
+
+                        }
+
+                    }
+
+                    break;
+
+                case Difficulty.SHard :
+
+                    if (active)
+                    {
+
+                        decision = rando.Next(1, 101);
+
+                        if (decision <= 70)
+                        {
+                            p.GamePad.GetSimState().SetButtonDown(currentButton);
+                        }
+                        else if (decision <= 90)
+                        {
+                            // Don't hit
+                        }
+                        else
+                        {
+
+                            ControllerButton choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+
+                            while (choice == currentButton)
+                            {
+                                choice = buttons.ElementAt(rando.Next(0, buttons.Count));
+                            }
+
+                            p.GamePad.GetSimState().SetButtonDown(choice);
+
+                        }
+
+                    }
+
+                    break;
+
+                default :
+                    return;
+
+            }
+
         }
 
     }
