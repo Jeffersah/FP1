@@ -25,6 +25,7 @@ namespace FP1.Minigames
         Image pipeEndSprite;
         Image lightSprite;
         Image lightHitSprite;
+        Image background;
         SpriteFont myFont;
 
         const int RETRACT_SPEED = 2;
@@ -40,6 +41,8 @@ namespace FP1.Minigames
             pipeEndSprite = new Image("Minigames\\PipeDown\\pipeEnd");
             lightSprite = new Image("Minigames\\PipeDown\\light");
             lightHitSprite = new Image("Minigames\\PipeDown\\lightHit");
+            background = new Image("Minigames\\PipeDown\\pipedownBackground");
+
             myFont = TextureManager.getFont("Minigames\\PipeDown\\myfont");
 
         }
@@ -186,6 +189,9 @@ namespace FP1.Minigames
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gt, Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
+
+            // Background
+            Camera.draw(sb, background, new Rectangle(0, 0, background.getTexture().Width, background.getTexture().Height));
             
             foreach (Pipe pipe in pipes)
             {
@@ -202,10 +208,10 @@ namespace FP1.Minigames
 
             }
 
-            Camera.drawString(sb, myFont, "P1: " + scores[0], new Vector2((GAMESPACE.Right - 80), (GAMESPACE.Bottom - 200)), Color.Yellow, 0, Vector2.Zero, SpriteEffects.None, 1);
+            Camera.drawString(sb, myFont, "P1: " + scores[0], new Vector2((GAMESPACE.Right - 80), (GAMESPACE.Bottom - 200)), Color.Orange, 0, Vector2.Zero, SpriteEffects.None, 1);
             for (int x = 1; x < players.Length; x++)
             {
-                Camera.drawString(sb, myFont, "P"+(x+1)+": "+scores[x], new Vector2((GAMESPACE.Right - 80), (GAMESPACE.Bottom - 200) + (50*x)), Color.White, 0, Vector2.Zero, SpriteEffects.None, 1);
+                Camera.drawString(sb, myFont, "P"+(x+1)+": "+scores[x], new Vector2((GAMESPACE.Right - 80), (GAMESPACE.Bottom - 200) + (50*x)), Color.Black, 0, Vector2.Zero, SpriteEffects.None, 1);
             }
 
         }

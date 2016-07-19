@@ -415,6 +415,15 @@
       <Output>F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\TugLife\beachBackground.xnb</Output>
       <Time>2016-07-19T19:22:42-04:00</Time>
     </Item>
+    <Item>
+      <Source>Minigames\PipeDown\pipedownBackground.png</Source>
+      <Name>Minigames\PipeDown\pipedownBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\PipeDown\pipedownBackground.xnb</Output>
+      <Time>2016-07-19T19:39:20-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID Null="true" />
