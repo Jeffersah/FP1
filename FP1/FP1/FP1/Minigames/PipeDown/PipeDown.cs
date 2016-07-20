@@ -20,6 +20,7 @@ namespace FP1.Minigames
         const int PADDING = 100;
         List<Pipe> pipes;
         Player[] players;
+        Dictionary<ControllerButton, Image> buttonSprites;
 
         Image pipeSprite;
         Image pipeEndSprite;
@@ -42,6 +43,16 @@ namespace FP1.Minigames
             lightSprite = new Image("Minigames\\PipeDown\\light");
             lightHitSprite = new Image("Minigames\\PipeDown\\lightHit");
             background = new Image("Minigames\\PipeDown\\pipedownBackground");
+
+            buttonSprites = new Dictionary<ControllerButton, Image>();
+            buttonSprites.Add(ControllerButton.A, new Image("ControllerImages\\A"));
+            buttonSprites.Add(ControllerButton.B, new Image("ControllerImages\\B"));
+            buttonSprites.Add(ControllerButton.X, new Image("ControllerImages\\X"));
+            buttonSprites.Add(ControllerButton.Y, new Image("ControllerImages\\Y"));
+            buttonSprites.Add(ControllerButton.LeftTrigger, new Image("ControllerImages\\LT"));
+            buttonSprites.Add(ControllerButton.LeftShoulder, new Image("ControllerImages\\LB"));
+            buttonSprites.Add(ControllerButton.RightTrigger, new Image("ControllerImages\\RT"));
+            buttonSprites.Add(ControllerButton.RightShoulder, new Image("ControllerImages\\RB"));
 
             myFont = TextureManager.getFont("Minigames\\PipeDown\\myfont");
 
@@ -205,6 +216,9 @@ namespace FP1.Minigames
 
                 Camera.draw(sb, pipeEndSprite, pipe.getUpEndBox(), Color.White, null, 0, Vector2.Zero, SpriteEffects.FlipVertically, 1);
                 Camera.draw(sb, pipeEndSprite, pipe.getDownEndBox());
+
+                Camera.draw(sb, buttonSprites[pipe.getButton()],
+                    new Rectangle(pipe.getDownEndBox().Left, pipe.getDownEndBox().Bottom, buttonSprites[pipe.getButton()].getTexture().Width, buttonSprites[pipe.getButton()].getTexture().Height));
 
             }
 

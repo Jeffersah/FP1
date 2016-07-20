@@ -45,5 +45,9 @@ Content\ControllerImages\X.xnb
 Content\ControllerImages\Y.xnb
 Content\Minigames\TugLife\beachBackground.xnb
 Content\Minigames\PipeDown\pipedownBackground.xnb
+Content\ControllerImages\LB.xnb
+Content\ControllerImages\LT.xnb
+Content\ControllerImages\RB.xnb
+Content\ControllerImages\RT.xnb
 Content\PrevNames
 Content\SCRDAT
