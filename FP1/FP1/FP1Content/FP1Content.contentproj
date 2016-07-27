@@ -67,6 +67,11 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="Minigames\HotBeat\myfont.spritefont">
+      <Name>myfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="PrevNames">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>PrevNames</Name>
@@ -330,6 +335,13 @@
     </Compile>
     <Compile Include="ControllerImages\RT.png">
       <Name>RT</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Minigames\HotBeat\musicSheet.png">
+      <Name>musicSheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -49,5 +49,7 @@ Content\ControllerImages\LB.xnb
 Content\ControllerImages\LT.xnb
 Content\ControllerImages\RB.xnb
 Content\ControllerImages\RT.xnb
+Content\Minigames\HotBeat\myfont.xnb
+Content\Minigames\HotBeat\musicSheet.xnb
 Content\PrevNames
 Content\SCRDAT
