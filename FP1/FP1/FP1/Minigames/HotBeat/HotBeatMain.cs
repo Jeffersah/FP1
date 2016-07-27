@@ -33,7 +33,7 @@ namespace FP1.Minigames
         public override void Load(ContentManager cm)
         {
 
-            sheetSprite = new Image("musicSheet");
+            sheetSprite = new Image("Minigames\\HotBeat\\musicSheet");
 
             buttonSprites = new Dictionary<ControllerButton, Image>();
             buttonSprites.Add(ControllerButton.A, new Image("ControllerImages\\A"));
@@ -42,6 +42,7 @@ namespace FP1.Minigames
             buttonSprites.Add(ControllerButton.Y, new Image("ControllerImages\\Y"));
 
             myFont = TextureManager.getFont("Minigames\\HotBeat\\myfont");
+
 
         }
 
