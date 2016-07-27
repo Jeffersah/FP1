@@ -112,6 +112,8 @@
     <Compile Include="GameScreenManager.cs" />
     <Compile Include="GameTimer.cs" />
     <Compile Include="LCamera.cs" />
+    <Compile Include="Minigames\HotBeat\Sheet.cs" />
+    <Compile Include="Minigames\HotBeat\HotBeatMain.cs" />
     <Compile Include="Minigames\LunchBreak\LunchBreakMain.cs" />
     <Compile Include="Minigames\LunchBreak\LunchItem.cs" />
     <Compile Include="Minigames\LunchBreak\Sandwich.cs" />
@@ -141,6 +143,7 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="Minigames\HotBeat\box.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\DataLoader\DataLoader\DataLoader.csproj">

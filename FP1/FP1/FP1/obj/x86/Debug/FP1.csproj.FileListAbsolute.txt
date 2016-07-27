@@ -135,3 +135,5 @@ F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\LB.xnb
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\LT.xnb
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\RB.xnb
 F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\ControllerImages\RT.xnb
+F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\HotBeat\myfont.xnb
+F:\C#Brah\XNA\FP1\FP1\FP1\FP1\FP1\bin\x86\Debug\Content\Minigames\HotBeat\musicSheet.xnb
