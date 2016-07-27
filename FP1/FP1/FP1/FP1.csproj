@@ -143,6 +143,7 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="Minigames\HotBeat\box.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\DataLoader\DataLoader\DataLoader.csproj">

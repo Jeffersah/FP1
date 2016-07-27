@@ -23,6 +23,7 @@ namespace FP1.Minigames
         const int FRAMES_PER_BEAT = 36;
 
         Image sheetSprite;
+        Image boxSprite;
         Dictionary<ControllerButton, Image> buttonSprites;
         SpriteFont myFont;
 
@@ -34,6 +35,7 @@ namespace FP1.Minigames
         {
 
             sheetSprite = new Image("Minigames\\HotBeat\\musicSheet");
+            boxSprite = new Image("Minigames\\HotBeat\\box");
 
             buttonSprites = new Dictionary<ControllerButton, Image>();
             buttonSprites.Add(ControllerButton.A, new Image("ControllerImages\\A"));
@@ -73,6 +75,18 @@ namespace FP1.Minigames
             //Camera.drawGeneric(sb, GAMESPACE, Color.Red);
 
             Camera.draw(sb, sheetSprite, mySheet.getSrc());
+
+            for (int x = 0; x < 6; x++)
+            {
+                /*
+                Camera.draw(sb, boxSprite, new Rectangle(
+                    mySheet.getSrc().Left + (x * (mySheet.getSrc().Width / 6)),
+                    mySheet.getSrc().Top,
+                    mySheet.getSrc().Width / 6,
+                    mySheet.getSrc().Height
+                    ), Color.Blue);*/
+                Camera.draw(sb, boxSprite, new Rectangle(0, 0, boxSprite.getTexture().Width, boxSprite.getTexture().Height), Color.Blue);
+            }
 
         }
 
