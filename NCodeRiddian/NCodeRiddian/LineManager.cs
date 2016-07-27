@@ -15,11 +15,15 @@ namespace NCodeRiddian
 
         private static bool PointOnLineSSI(Vector2 A, Vector2 B, Vector2 point)
         {
-            return point.X >= Math.Min(A.X, B.X) && point.X <= Math.Max(A.X, B.X) && point.Y >= Math.Min(A.Y, B.Y) && point.Y <= Math.Max(A.Y, B.Y);
+            bool onX = (point.X >= Math.Min(A.X, B.X) && point.X <= Math.Max(A.X, B.X)) || FloatHelp.ApproxEquals(point.X, A.X, .001f) || FloatHelp.ApproxEquals(point.X, B.X, .001f);
+            bool onY = (point.Y >= Math.Min(A.Y, B.Y) && point.Y <= Math.Max(A.Y, B.Y)) || FloatHelp.ApproxEquals(point.Y, A.Y, .001f) || FloatHelp.ApproxEquals(point.Y, B.Y, .001f);
+            return onX && onY;
         }
         private static bool PointOnLineSSI(DBLV A, DBLV B, DBLV point)
         {
-            return point.X >= Math.Min(A.X, B.X) && point.X <= Math.Max(A.X, B.X) && point.Y >= Math.Min(A.Y, B.Y) && point.Y <= Math.Max(A.Y, B.Y);
+            bool onX = (point.X >= Math.Min(A.X, B.X) && point.X <= Math.Max(A.X, B.X)) || FloatHelp.ApproxEquals(point.X, A.X, .001) || FloatHelp.ApproxEquals(point.X, B.X, .001);
+            bool onY = (point.Y >= Math.Min(A.Y, B.Y) && point.Y <= Math.Max(A.Y, B.Y)) || FloatHelp.ApproxEquals(point.Y, A.Y, .001) || FloatHelp.ApproxEquals(point.Y, B.Y, .001);
+            return onX && onY;
         }
         public static Vector2 Scale(Vector2 start, Vector2 currentEnd, float perc)
         {

@@ -22,5 +22,10 @@ namespace NCodeRiddian
         {
             return Math.Abs(A.X - B.X) < margin && Math.Abs(A.Y - B.Y) < margin;
         }
+
+        public static bool ApproxEquals(double A, double B, double margin)
+        {
+            return Math.Abs(A - B) <= margin;
+        }
     }
 }
