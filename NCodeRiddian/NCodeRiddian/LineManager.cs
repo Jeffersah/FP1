@@ -73,7 +73,7 @@ namespace NCodeRiddian
             
             if(PointOnLineSSI(A, B, pointOfIntersection) && PointOnLineSSI(C, D, pointOfIntersection))
             {
-                if (pointOfIntersection.Equals( A ) || pointOfIntersection.Equals( B ) || pointOfIntersection.Equals( C ) || pointOfIntersection.Equals( D ))
+                if (pointOfIntersection.ApproxEquals( A, .001 ) || pointOfIntersection.ApproxEquals( B, .001 ) || pointOfIntersection.ApproxEquals( C, .001 ) || pointOfIntersection.ApproxEquals( D, .001 ))
                 {
                     return new ColisionInfo(true, 1, pointOfIntersection);
                 }
@@ -125,7 +125,7 @@ namespace NCodeRiddian
         }
     }
 
-    internal struct DBLV
+    public struct DBLV
     {
         public double X;
         public double Y;
@@ -153,6 +153,11 @@ namespace NCodeRiddian
                 return other.X == X && other.Y == Y;
             }
             return false;
+        }
+
+        public bool ApproxEquals(DBLV obj, double margin)
+        {
+            return FloatHelp.ApproxEquals(this, obj, margin);
         }
         public static implicit operator Vector2(DBLV me)
         {

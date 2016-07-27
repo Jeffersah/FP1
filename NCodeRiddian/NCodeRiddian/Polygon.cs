@@ -409,6 +409,37 @@ namespace NCodeRiddian
             return Bounds.Intersects(p.Bounds);
         }
 
+        public bool PointingInward(Vector2 position, float angle)
+        {
+            Velocity tmp = new Velocity(2*(bounds.Width + bounds.Height), angle, true);
+            Vector2 limit = tmp.Move(position);
+            int clip = 0;
+            int count = 0;
+            for (int i = 0; i < NumberOfSides(); i++)
+            {
+                ColisionInfo info = LineManager.LinesIntersect(position, limit, GetCorner(i), GetCorner((i + 1) % NumberOfSides()));
+                switch(info.Type)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        if (FloatHelp.ApproxEquals(info.IntersectionPointA.Value, position, .01f))
+                        { }
+                        else
+                        {
+                            clip++;
+                        }
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        count++;
+                        break;
+                }
+            }
+            return (count + (clip/2)) % 2 == 1;
+        }
+
         /// <summary>
         /// Checks if two polygons are coliding (including encapsulation)
         /// </summary>

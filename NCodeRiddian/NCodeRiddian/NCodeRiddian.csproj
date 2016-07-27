@@ -99,6 +99,7 @@
     <Compile Include="ArrayPather.cs" />
     <Compile Include="Association.cs" />
     <Compile Include="ControllerManager.cs" />
+    <Compile Include="FloatHelp.cs" />
     <Compile Include="GenericShapeHelper.cs" />
     <Compile Include="ImageTransform.cs" />
     <Compile Include="Input\ActiveController.cs" />
