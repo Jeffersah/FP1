@@ -78,6 +78,8 @@ namespace FP1
             ScreenManager = new GameScreenManager();
             Screens.MinigameScreen.Load(Content);
 
+            //Settings.DEBUG_CONTROLLERS = true;
+
             //DEBUGGING:
             
             Settings.UPDATE_GT = new GameTime(TimeSpan.Zero, TimeSpan.Zero);
@@ -86,9 +88,9 @@ namespace FP1
                 new Player("CMP E", Difficulty.Easy, PlayerIndex.Two),
                 new Player("CMP M", Difficulty.Medium, PlayerIndex.Three),
                 new Player("CMP H", Difficulty.Hard, PlayerIndex.Four)});
-            GameManager.ChangeP1(GameManager.Players[0], 0);
+            GameManager.ChangeP1(GameManager.Players[2], 0);
             ScreenManager.ChangeScreen(new Screens.MinigameScreen(
-                Screens.MinigameScreen.AllMinigames[4], // Minigame goes here 
+                Screens.MinigameScreen.AllMinigames[2], // Minigame goes here 
                 GameManager.Players));
             
             // END DEBUGGING
@@ -124,15 +126,25 @@ namespace FP1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+
             // Allows the game to exit
             Settings.UPDATE_GT = gameTime;
+
+            if (GameManager.Players != null)
+            {
+                foreach (Player p in GameManager.Players)
+                {
+                    p.GamePad.Update();
+                }
+            }
+
+            base.Update(gameTime);
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
             ScreenManager.Update(gameTime);
 
-            base.Update(gameTime);
         }
 
         /// <summary>

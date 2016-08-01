@@ -51,7 +51,6 @@ namespace FP1.Screens
         {
             foreach (Player p in players)
             {
-                p.GamePad.Update();
                 if (p.IsComputer)
                 {
                     currentGame.RunAI(p, p.ComputerLevel);
