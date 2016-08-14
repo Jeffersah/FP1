@@ -160,7 +160,7 @@ namespace FP1.Minigames
             if (distance <= 30 && isGoingDown)
                 setSpeed(getSpeed()*2);
             else
-                setSpeed(2);
+                setSpeed(getSpeed() * 1.1f);
 
             isGoingDown = false;
             canUp(true);
@@ -172,7 +172,7 @@ namespace FP1.Minigames
             if (distance <= 50 && !isGoingDown)
                 setSpeed(getSpeed()*2);
             else
-                setSpeed(2);
+                setSpeed(getSpeed() * 1.1f);
 
             isGoingDown = true;
 

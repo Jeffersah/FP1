@@ -18,27 +18,43 @@ namespace FP1.Screens
 {
     class CONTROLLER_TEST : Screen
     {
-        SpriteFont font;
-        GamePadStateManager pad;
         public override void Start()
         {
-            font = TextureManager.getFont("smallfont");
-            pad = new ActiveController(PlayerIndex.One);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime time, GameScreenManager Manager)
         {
-            pad.Update();
+            foreach (Player p in GameManager.Players)
+            {
+                p.GamePad.Update();
+            }
+            foreach (ControllerButton b in Enum.GetValues(typeof(ControllerButton)))
+            {
+                if (GameManager.Players[0].GamePad.IsButtonPressed(b))
+                {
+                    foreach (Player p in GameManager.Players)
+                    {
+                        if (p.IsComputer)
+                        {
+                            p.GamePad.GetSimState().SetButtonDown(b);
+                        }
+                    }
+                }
+                if (GameManager.Players[0].GamePad.IsButtonReleased(b))
+                {
+                    foreach (Player p in GameManager.Players)
+                    {
+                        if (p.IsComputer)
+                        {
+                            p.GamePad.GetSimState().SetButtonUp(b);
+                        }
+                    }
+                }
+            }
         }
 
         public override void Draw(Microsoft.Xna.Framework.GameTime time, Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
-            int i = 0;
-            foreach(ControllerButton button in Enum.GetValues(typeof(ControllerButton)).Cast<ControllerButton>())
-            {
-                Camera.drawString(sb, font, Enum.GetName(typeof(ControllerButton), button), new Vector2(10, font.MeasureString("HI").Y * i), pad.IsButtonDown(button) ? Color.Green : Color.Red, 0, Vector2.Zero, SpriteEffects.None, 0);
-                i++;    
-            }
         }
     }
 }

@@ -1,12 +1,12 @@
 Content\GenericMenu.xnb
 Content\namefont.xnb
 Content\Minigames\test\myfont.xnb
-Content\Minigames\PipeDown\myfont.xnb
-Content\Minigames\PipeDown\light.xnb
 Content\Minigames\test\light.xnb
 Content\Minigames\test\lightHit.xnb
 Content\Minigames\test\pipe.xnb
 Content\Minigames\test\pipeEnd.xnb
+Content\Minigames\PipeDown\myfont.xnb
+Content\Minigames\PipeDown\light.xnb
 Content\Minigames\PipeDown\lightHit.xnb
 Content\Minigames\PipeDown\pipe.xnb
 Content\Minigames\PipeDown\pipeEnd.xnb
@@ -37,6 +37,7 @@ Content\ControllerHelper\Y_MASK.xnb
 Content\ControllerHelper\LEFT_STICK.xnb
 Content\ControllerHelper\RIGHT_STICK.xnb
 Content\Minigames\TugLife\tugFont.xnb
+Content\Minigames\HotBeat\myfont.xnb
 Content\Minigames\TugLife\muscleMan.xnb
 Content\Minigames\TugLife\rope.xnb
 Content\ControllerImages\A.xnb
@@ -49,7 +50,6 @@ Content\ControllerImages\LB.xnb
 Content\ControllerImages\LT.xnb
 Content\ControllerImages\RB.xnb
 Content\ControllerImages\RT.xnb
-Content\Minigames\HotBeat\myfont.xnb
 Content\Minigames\HotBeat\musicSheet.xnb
 Content\PrevNames
 Content\SCRDAT

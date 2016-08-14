@@ -35,7 +35,7 @@ namespace FP1.Minigames
         {
 
             sheetSprite = new Image("Minigames\\HotBeat\\musicSheet");
-            boxSprite = new Image("Minigames\\HotBeat\\box");
+            boxSprite = SafeImage.Get("Minigames\\HotBeat\\box");
 
             buttonSprites = new Dictionary<ControllerButton, Image>();
             buttonSprites.Add(ControllerButton.A, new Image("ControllerImages\\A"));

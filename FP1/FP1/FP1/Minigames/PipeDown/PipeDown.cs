@@ -29,7 +29,10 @@ namespace FP1.Minigames
         Image background;
         SpriteFont myFont;
 
-        const int RETRACT_SPEED = 2;
+        const int RETRACT_SPEED = 3;
+
+        List<ControllerButton> AI_pending;
+        List<ControllerButton> AI_pending_1;
 
         int[] scores = new int[]{0, 0, 0, 0};
 
@@ -64,24 +67,29 @@ namespace FP1.Minigames
             players = InGame;
             pipes = new List<Pipe>();
 
-            pipes.Add(new Pipe(players[1], ControllerButton.LeftTrigger, GAMESPACE.Left, GAMESPACE.Top)); // LT
-            pipes.Add(new Pipe(players[1], ControllerButton.LeftShoulder,
+            AI_pending = new List<ControllerButton>();
+            AI_pending_1 = new List<ControllerButton>();
+
+            Player[] NonP1 = players.Where(x => !x.isP1).ToArray();
+
+            pipes.Add(new Pipe(NonP1[0], ControllerButton.LeftTrigger, GAMESPACE.Left, GAMESPACE.Top)); // LT
+            pipes.Add(new Pipe(NonP1[0], ControllerButton.LeftShoulder,
                 GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 1),
                 GAMESPACE.Top
                 )); // LB
-            pipes.Add(new Pipe(players[2], ControllerButton.X,
+            pipes.Add(new Pipe(NonP1[1], ControllerButton.X,
                 GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 2),
                 GAMESPACE.Top
                 )); // X
-            pipes.Add(new Pipe(players[2], ControllerButton.A,
+            pipes.Add(new Pipe(NonP1[1], ControllerButton.A,
                 GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 3),
                 GAMESPACE.Top
                 )); // A
-            pipes.Add(new Pipe(players[3], ControllerButton.RightShoulder,
+            pipes.Add(new Pipe(NonP1[2], ControllerButton.RightShoulder,
                 GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 4),
                 GAMESPACE.Top
                 )); // RB
-            pipes.Add(new Pipe(players[3], ControllerButton.RightTrigger,
+            pipes.Add(new Pipe(NonP1[2], ControllerButton.RightTrigger,
                 GAMESPACE.Left + ((pipeSprite.getTexture().Width + PADDING) * 5),
                 GAMESPACE.Top
                 )); // RT
@@ -131,7 +139,7 @@ namespace FP1.Minigames
                     }
                 }
 
-                if (players[0].GamePad.IsButtonPressed(pipe.getButton()))
+                if (players.Where(x=>x.isP1).First().GamePad.IsButtonPressed(pipe.getButton()))
                 {
                     if (pipe.canUp())
                     {
@@ -235,53 +243,115 @@ namespace FP1.Minigames
 
             foreach (Pipe pipe in pipes)
             {
-
                 if (!p.isP1)
                 {
-                    if (pipe.getPlayer().Equals(p))
+                    if (pipe.getPlayer() == p)
                     {
+                        // Time between light entering range and pressing the button
+                        TimeSpan Reaction;
+                        // Time between pressing the button and releasing it
+                        TimeSpan Release;
+                        // Extra wait time before pressing button (for fast shots)
+                        int HitBuffer;
                         switch (difficulty)
                         {
 
                             case Difficulty.SEasy:    // Super Easy
+                                Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(750, 1500));
+                                Release = new TimeSpan(0, 0, 0, 3, 0);
+                                HitBuffer = 0;
                                 break;
-
                             case Difficulty.Easy:      // Easy
+                                Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(600, 900));
+                                Release = new TimeSpan(0, 0, 0, 1, 0);
+                                HitBuffer = 0;
                                 break;
-
+                            default:
                             case Difficulty.Medium:    // Medium
+                                Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(300, 600));
+                                Release = new TimeSpan(0, 0, 0, 0, 50);
+                                HitBuffer = 0;
                                 break;
-
                             case Difficulty.Hard:      // Hard
+                                Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(100, 600));
+                                Release = new TimeSpan(0, 0, 0, 0, 50);
+                                HitBuffer = 50;
                                 break;
-
                             case Difficulty.SHard:     // Super Hard
+                                Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(100, 400));
+                                Release = new TimeSpan(0, 0, 0, 0, 30);
+                                HitBuffer = 150;
                                 break;
 
+                        }
+                        if (!AI_pending.Contains(pipe.getButton()) && pipe.getlightBox().Y - (pipe.getUpEndBox().Y + pipe.getUpEndBox().Height) <= pipe.getUpHitBox().Height - HitBuffer)
+                        {
+                            ControllerButton pbtn = pipe.getButton();
+                            AI_pending.Add(pbtn);
+                            GameTimer.AddStaticTimer(Settings.UPDATE_GT, Reaction, x =>
+                            {
+                                AI_pending.Remove(pbtn);
+                                p.GamePad.GetSimState().SetButtonDown(pbtn);
+                                GameTimer.AddStaticTimer(Settings.UPDATE_GT, Release, y =>
+                                {
+                                    p.GamePad.GetSimState().SetButtonUp(pbtn);
+                                });
+                            });
                         }
                     }
                 }
                 else
                 {
-
+                    // Time between light entering range and pressing the button
+                    TimeSpan Reaction;
+                    // Time between pressing the button and releasing it
+                    TimeSpan Release;
+                    // Extra wait time before pressing button (for fast shots)
+                    int HitBuffer;
                     switch (difficulty)
                     {
 
                         case Difficulty.SEasy:    // Super Easy
+                            Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(750, 1500));
+                            Release = new TimeSpan(0, 0, 0, 3, 0);
+                            HitBuffer = (int)GlobalRandom.NextBetween(0, 150);
                             break;
-
                         case Difficulty.Easy:      // Easy
+                            Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(600, 900));
+                            Release = new TimeSpan(0, 0, 0, 1, 0);
+                            HitBuffer = (int)GlobalRandom.NextBetween(0, 150);
                             break;
-
+                        default:
                         case Difficulty.Medium:    // Medium
+                            Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(300, 600));
+                            Release = new TimeSpan(0, 0, 0, 0, 50);
+                            HitBuffer = (int)GlobalRandom.NextBetween(0, 200);
                             break;
-
                         case Difficulty.Hard:      // Hard
+                            Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(100, 600));
+                            Release = new TimeSpan(0, 0, 0, 0, 50);
+                            HitBuffer = (int)GlobalRandom.NextBetween(50, 200);
                             break;
-
                         case Difficulty.SHard:     // Super Hard
+                            Reaction = new TimeSpan(0, 0, 0, 0, (int)GlobalRandom.NextBetween(100, 400));
+                            Release = new TimeSpan(0, 0, 0, 0, 30);
+                            HitBuffer = 150;
                             break;
 
+                    }
+                    if (!AI_pending_1.Contains(pipe.getButton()) && (pipe.getDownEndBox().Y) - (pipe.getlightBox().Y + pipe.getlightBox().Height) <= pipe.getDownHitBox().Height - HitBuffer)
+                    {
+                        ControllerButton pbtn = pipe.getButton();
+                        AI_pending_1.Add(pbtn);
+                        GameTimer.AddStaticTimer(Settings.UPDATE_GT, Reaction, x =>
+                        {
+                            AI_pending_1.Remove(pbtn);
+                            p.GamePad.GetSimState().SetButtonDown(pbtn);
+                            GameTimer.AddStaticTimer(Settings.UPDATE_GT, Release, y =>
+                            {
+                                p.GamePad.GetSimState().SetButtonUp(pbtn);
+                            });
+                        });
                     }
 
                 }
