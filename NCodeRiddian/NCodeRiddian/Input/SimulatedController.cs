@@ -18,7 +18,7 @@ namespace NCodeRiddian.Input
         {
             ControllerState tmp = Previous;
             Previous = Current;
-            Current = Previous;
+            Current = tmp;
             Current.Copy(Previous);
         }
     }

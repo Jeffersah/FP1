@@ -28,5 +28,13 @@ namespace NCodeRiddian
             tmp = new Velocity(flangeLength, LocationManager.getRotation(end, start) - flangeAngle, true);
             Camera.drawLineGeneric(end, tmp.Move(end), sb, c);
         }
+
+        public static void DrawOutline(Rectangle r, int thickness, SpriteBatch sb, Color c)
+        {
+            foreach(Vector2[] v in LocationManager.RectangleEdges(r))
+            {
+                Camera.drawLineGeneric(v[0], v[1], sb, c, thickness);
+            }
+        }
     }
 }

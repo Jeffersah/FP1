@@ -100,6 +100,34 @@ namespace NCodeRiddian
 
             return new DBLV(slope, intersect);
         }
+
+        public static Vector2 GetClosestPointOnLine(Vector2 point, Vector2 LineA, Vector2 LineB)
+        {
+            float A = point.X - LineA.X;
+            float B = point.Y - LineA.Y;
+            float C = LineB.X - LineA.X;
+            float D = LineB.Y - LineA.Y;
+
+            float dot = A * C + B * D;
+            float len_sq = C * C + D * D;
+            float param = dot / len_sq;
+
+            Vector2 tgt;
+
+            if (param < 0)
+            {
+                tgt = LineA;
+            }
+            else if (param > 1)
+            {
+                tgt = LineB;
+            }
+            else
+            {
+                tgt = LineA + (new Vector2(C, D) * param);
+            }
+            return tgt;
+        }
     }
 
     public struct ColisionInfo

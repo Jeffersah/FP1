@@ -62,6 +62,14 @@ namespace NCodeRiddian
         protected int NumberOfFrames;
         public onFinish onFinishAction;
         public onFinishParams parameterFinish;
+        bool fbool;
+        public bool JustFinished
+        {
+            get
+            {
+                return fbool;
+            }
+        }
 
         /// <summary>
         /// Creates a new animated image
@@ -77,6 +85,7 @@ namespace NCodeRiddian
             currentFrame = new Rectangle(0, 0, frameSize.X, frameSize.Y);
             maxFrameSleep = frameSleepTime;
             framesleep = maxFrameSleep;
+            fbool = false;
 
             NumberOfFrames = frameNum;
         }
@@ -95,7 +104,7 @@ namespace NCodeRiddian
             currentFrame = new Rectangle(0, 0, frameSize.X, frameSize.Y);
             maxFrameSleep = frameSleepTime;
             framesleep = maxFrameSleep;
-
+            fbool = false;
             NumberOfFrames = frameNum;
         }
 
@@ -149,6 +158,7 @@ namespace NCodeRiddian
         /// </summary>
         public virtual void applyStep()
         {
+            fbool = false;
             framesleep--;
             if (framesleep <= 0)
             {
@@ -159,6 +169,7 @@ namespace NCodeRiddian
                 {
                     if (onFinishAction != null)
                         onFinishAction(this);
+                    fbool = true;
                     currentFrame.X = 0;
                     currentFrame.Y += frameS.Y;
                     currentFrame.Y %= getTexture().Height;
@@ -172,6 +183,7 @@ namespace NCodeRiddian
         /// <param name="onfinishparam"></param>
         public virtual void applyStep(params object[] onfinishparam)
         {
+            fbool = false;
             framesleep--;
             if (framesleep <= 0)
             {
@@ -182,6 +194,7 @@ namespace NCodeRiddian
                 {
                     if (parameterFinish != null)
                         parameterFinish(this, onfinishparam);
+                    fbool = true;
                     currentFrame.X = 0;
                     currentFrame.Y += frameS.Y;
                     currentFrame.Y %= getTexture().Height;
@@ -202,7 +215,7 @@ namespace NCodeRiddian
         {
             currentFrame.X = frameS.X * animationStep;
             currentFrame.X %= getTexture().Width;
-
+            fbool = false;
             if (resetTime)
                 framesleep = maxFrameSleep;
         }
