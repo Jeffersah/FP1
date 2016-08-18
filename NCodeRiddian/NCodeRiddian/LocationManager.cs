@@ -667,5 +667,47 @@ namespace NCodeRiddian
             }
             return output;
         }
+        public static List<Point> AllPointsThroughGrid(Vector2[] line, int gridSize)
+        {
+            List<Point> output = new List<Point>();
+            float gridsize = gridSize;
+            float halfGrid = gridsize / 2;
+            Vector2 delta = line[1] - line[0];
+            Point count = new Point((int)(Math.Abs(delta.X) / gridSize), (int)(Math.Abs(delta.Y) / gridSize));
+            Point step = new Point(Math.Sign(delta.X), Math.Sign(delta.Y));
+
+            Point currentStep = roundToGrid(line[0], gridSize);
+            output.Add(currentStep);
+            Point current = new Point(0, 0);
+            while(current.X < count.X || current.Y < count.Y)
+            {
+                float diff = (.5f + current.X) * count.Y - (.5f + current.Y) * count.X;
+                if ( diff == 0 )
+                {
+                    // Diagonal
+                    currentStep.X += step.X;
+                    currentStep.Y += step.Y;
+                    current.X++;
+                    current.Y++;
+                }
+                else if(diff < 0)
+                {
+                    // horizontal
+                    currentStep.X += step.X;
+                    current.X++;
+                }
+                else
+                {
+                    currentStep.Y += step.Y;
+                    current.Y++;
+                }
+                output.Add(currentStep);
+            }
+            return output;
+        }
+        private static Point roundToGrid(Vector2 v, int gridsize)
+        {
+            return new Point((int)(v.X / gridsize), (int)(v.Y / gridsize));
+        }
     }
 }

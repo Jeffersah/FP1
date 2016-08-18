@@ -34,3 +34,9 @@ F:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.csprojResol
 F:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
 F:\C#Brah\XNA\FP1\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb
+C:\Users\great_000\Documents\git\FP1\DataLoader\DataLoader\bin\x86\Debug\DataLoader.dll
+C:\Users\great_000\Documents\git\FP1\DataLoader\DataLoader\bin\x86\Debug\DataLoader.pdb
+C:\Users\great_000\Documents\git\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.csprojResolveAssemblyReference.cache
+C:\Users\great_000\Documents\git\FP1\DataLoader\DataLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\great_000\Documents\git\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.dll
+C:\Users\great_000\Documents\git\FP1\DataLoader\DataLoader\obj\x86\Debug\DataLoader.pdb
